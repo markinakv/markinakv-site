@@ -16,8 +16,10 @@
     @media (max-width: 720px) {
       .mk-grid { grid-template-columns: 1fr !important; }
       .mk-side { position: static !important; }
+      .mk-photos { grid-template-columns: repeat(2, 1fr) !important; }
     }
   </style>
+  <script src="./image-slot.js"></script>
 </helmet>
 <div style="background: oklch(0.98 0.006 90); min-height: 100vh; color: oklch(0.22 0.01 90); font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif; display: flex; flex-direction: column; align-items: center;">
   <div style="width: 100%; max-width: 880px; padding: 32px 24px 0;">
@@ -58,6 +60,12 @@
         </sc-for>
       </div>
 
+    </div>
+
+    <div class="mk-photos" style="grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+      <image-slot id="charity-photo-1" shape="rounded" radius="12" placeholder="фото" src="uploads/charity-photo-1.jpg" style="width: 100%; aspect-ratio: 1; flex-shrink: 0;"></image-slot>
+      <image-slot id="charity-photo-2" shape="rounded" radius="12" placeholder="фото" src="uploads/charity-photo-2.jpg" style="width: 100%; aspect-ratio: 1; flex-shrink: 0;"></image-slot>
+      <image-slot id="charity-photo-3" shape="rounded" radius="12" placeholder="фото" src="uploads/charity-photo-3.jpg" style="width: 100%; aspect-ratio: 1; flex-shrink: 0;"></image-slot>
     </div>
 
     <div style="grid-column: 1 / -1; padding-top: 16px; border-top: 1px solid oklch(0.9 0.006 90); display: flex; justify-content: flex-end; font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace; font-size: 11px; color: oklch(0.6 0.02 90);">
