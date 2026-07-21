@@ -99,16 +99,15 @@
     <div>
       <div style="margin: 0 0 32px;">
         <p style="font-size: 15px; line-height: 1.6; color: oklch(0.35 0.01 90); margin: 0 0 12px;">{{ aboutTextIntro }}</p>
-        <p style="font-size: 15px; line-height: 1.6; color: oklch(0.35 0.01 90); margin: 0 0 12px;">{{ aboutTextTrainerPrefix }}<a href="./neurointegration.html">{{ aboutTextTrainerLabel }}</a>{{ aboutTextTrainerSuffix }}<br>{{ aboutTextCoach }}</p>
-        <p style="font-size: 15px; line-height: 1.6; color: oklch(0.35 0.01 90); margin: 0;">{{ aboutTextNomad }}</p>
+        <p style="font-size: 15px; line-height: 1.6; color: oklch(0.35 0.01 90); margin: 0;">{{ aboutTextTrainerPrefix }}<a href="./neurointegration.html">{{ aboutTextTrainerLabel }}</a>{{ aboutTextTrainerSuffix }}<br>{{ aboutTextCoach }}</p>
       </div>
 
-      <sc-if value="{{ whereVisible }}">
-        <div style="margin-bottom: 32px;">
-          <div style="font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace; font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: oklch(0.55 0.03 90); margin-bottom: 10px;">{{ whereHeading }}</div>
-          <p style="font-size: 15px; line-height: 1.6; color: oklch(0.35 0.01 90); margin: 0;">{{ whereText }}</p>
-        </div>
-      </sc-if>
+      <div style="margin-bottom: 32px;">
+        <div style="font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace; font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: oklch(0.55 0.03 90); margin-bottom: 10px;">{{ aboutTextNomad }}</div>
+        <sc-if value="{{ whereVisible }}">
+          <p style="font-size: 15px; line-height: 1.6; color: oklch(0.35 0.01 90); margin: 0;">{{ whereLine }}</p>
+        </sc-if>
+      </div>
 
       <div style="margin-bottom: 32px;">
         <div style="font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace; font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: oklch(0.55 0.03 90); margin-bottom: 10px;">{{ directionsHeading }}</div>
@@ -170,7 +169,7 @@ const COPY = {
       { label: 'вот о чем подумала | пуб_личный дневник', tag: 'telegram', href: 'https://t.me/mark_inalife' },
       { label: 'mind-hearted | feel. think. act.', tag: 'telegram', href: 'https://t.me/mindhearted' },
     ],
-    whereHeading: 'Где я',
+    whereLabel: 'Где я',
     whereUntilLabel: 'до',
     directionsHeading: 'Чем занимаюсь',
     directions: [
@@ -202,7 +201,7 @@ const COPY = {
       { label: 'katerina-markina', tag: 'linkedin', href: 'https://www.linkedin.com/in/katerina-markina/' },
       { label: 'markinakv', tag: 'facebook', href: 'https://www.facebook.com/markinakv' },
     ],
-    whereHeading: 'Where I am',
+    whereLabel: 'Where I am',
     whereUntilLabel: 'until',
     directionsHeading: 'What I do',
     directions: [
@@ -226,17 +225,16 @@ class Component extends DCLogic {
   renderVals() {
     const t = COPY[this.state.lang];
     const loc = this.state.location;
-    let whereText = '';
+    let whereLine = '';
     if (loc && loc.country) {
-      whereText = loc.city
-        ? `${loc.country}, ${loc.city} — ${t.whereUntilLabel} ${loc.until}`
-        : `${loc.country} — ${t.whereUntilLabel} ${loc.until}`;
+      const place = loc.city ? `${loc.country}, ${loc.city}` : loc.country;
+      whereLine = `${t.whereLabel}: ${place} — ${t.whereUntilLabel} ${loc.until}`;
     }
     return {
       ...t,
       toggleLang: () => this.setState(s => ({ lang: s.lang === 'ru' ? 'en' : 'ru' })),
-      whereText,
-      whereVisible: !!whereText,
+      whereLine,
+      whereVisible: !!whereLine,
     };
   }
 }
