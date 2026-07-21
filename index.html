@@ -47,7 +47,11 @@
     </div>
 
     <div>
-      <p style="font-size: 15px; line-height: 1.6; color: oklch(0.35 0.01 90); margin: 0 0 32px;">{{ aboutText }}</p>
+      <div style="margin: 0 0 32px;">
+        <p style="font-size: 15px; line-height: 1.6; color: oklch(0.35 0.01 90); margin: 0 0 12px;">{{ aboutTextIntro }}</p>
+        <p style="font-size: 15px; line-height: 1.6; color: oklch(0.35 0.01 90); margin: 0 0 12px;">{{ aboutTextTrainerPrefix }}<a href="./neurointegration.html">{{ aboutTextTrainerLabel }}</a>{{ aboutTextTrainerSuffix }}<br>{{ aboutTextCoach }}</p>
+        <p style="font-size: 15px; line-height: 1.6; color: oklch(0.35 0.01 90); margin: 0;">{{ aboutTextNomad }}</p>
+      </div>
 
       <div style="margin-bottom: 32px;">
         <div style="font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace; font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: oklch(0.55 0.03 90); margin-bottom: 10px;">{{ directionsHeading }}</div>
@@ -87,7 +91,12 @@ const COPY = {
     langSwitchLabel: 'EN',
     heroName: 'Катерина Маркина',
     heroTagline: 'Growth Operations · Neurointegration Coaching · Social Impact',
-    aboutText: 'Я работаю на стыке нескольких направлений: сопровождаю людей через нейроинтеграцию, выстраиваю операционные процессы роста в качестве Growth Operations Manager и участвую в проектах поддержки сообществ в Африке. Мне интересно там, где системное мышление встречается с заботой о людях — будь то нервная система человека, процессы внутри компании или устойчивость проекта на месте.',
+    aboutTextIntro: 'Операционный менеджер с опытом в B2B SaaS, adtech, театре, образовании и благотворительности. Выстраиваю работу так, чтобы за командой и продуктом стояли смысл, предсказуемая система и постоянное развитие.',
+    aboutTextTrainerPrefix: 'Сертифицированный ',
+    aboutTextTrainerLabel: 'тренер по нейроинтеграции',
+    aboutTextTrainerSuffix: '.',
+    aboutTextCoach: 'Сейчас обучаюсь на коуча по стандартам ICF.',
+    aboutTextNomad: 'Диджитал-номад',
     contactHeading: 'Связаться',
     contacts: [
       { label: 'km@markinakv.com', tag: 'почта', href: 'mailto:km@markinakv.com' },
@@ -115,7 +124,12 @@ const COPY = {
     langSwitchLabel: 'RU',
     heroName: 'Katerina Markina',
     heroTagline: 'Growth Operations · Neurointegration Coaching · Social Impact',
-    aboutText: 'I work at the intersection of a few directions: guiding people through neurointegration, building growth operations processes as a Growth Operations Manager, and supporting community projects in Africa. I care about places where systems thinking meets care for people — whether that\u2019s a person\u2019s nervous system, a company\u2019s processes, or a project\u2019s durability on the ground.',
+    aboutTextIntro: 'Operations manager with experience across B2B SaaS, adtech, theatre, education, and charity. I build work so that meaning, a predictable system, and continuous growth stand behind the team and the product.',
+    aboutTextTrainerPrefix: 'Certified ',
+    aboutTextTrainerLabel: 'neurointegration trainer',
+    aboutTextTrainerSuffix: '.',
+    aboutTextCoach: 'Currently training as an ICF-standard coach.',
+    aboutTextNomad: 'Digital nomad',
     contactHeading: 'Contact',
     contacts: [
       { label: 'km@markinakv.com', tag: 'mail', href: 'mailto:km@markinakv.com' },
