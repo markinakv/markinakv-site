@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta name="design_doc_mode" content="page">
+  <style>
+    body { margin: 0; }
+    a { color: inherit; text-decoration: none; border-bottom: 1px solid currentColor; opacity: 0.75; }
+    a:hover { opacity: 1; }
+    @media (max-width: 720px) {
+      .mk-grid { grid-template-columns: 1fr !important; }
+      .mk-side { position: static !important; }
+    }
+  </style>
+  <script src="./image-slot.js"></script>
+</helmet>
+<div style="background: oklch(0.98 0.006 90); min-height: 100vh; color: oklch(0.22 0.01 90); font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif; display: flex; flex-direction: column; align-items: center;">
+  <div style="width: 100%; max-width: 880px; padding: 32px 24px 0;">
+    <a href="./index.html" style="font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace; font-size: 11px; color: oklch(0.55 0.03 90); border-bottom: none;">{{ backLabel }}</a>
+  </div>
+  <div class="mk-grid" style="width: 100%; max-width: 880px; padding: 24px 24px 56px; display: grid; grid-template-columns: 280px 1fr; gap: 48px; align-items: start;">
+
+    <div class="mk-side" style="position: sticky; top: 56px; display: flex; flex-direction: column; gap: 16px;">
+      <image-slot id="portrait-neuro" shape="rounded" radius="12" placeholder="фото" src="uploads/DSC_8685_resized.jpg" style="width: 100%; aspect-ratio: 1; flex-shrink: 0;"></image-slot>
+      <div>
+        <h1 style="font-size: 24px; font-weight: 600; margin: 0 0 6px; letter-spacing: -0.01em;">{{ heroName }}</h1>
+        <div style="font-size: 13px; color: oklch(0.4 0.05 150); line-height: 1.4;">{{ heroTagline }}</div>
+      </div>
+      <button onClick="{{ toggleLang }}" style="align-self: flex-start; font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace; font-size: 12px; letter-spacing: 0.03em; background: none; border: 1px solid oklch(0.7 0.02 90); border-radius: 20px; padding: 5px 12px; cursor: pointer; color: oklch(0.4 0.05 150);">{{ langSwitchLabel }}</button>
+
+      <div>
+        <div style="font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace; font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: oklch(0.55 0.03 90); margin-bottom: 8px;">{{ contactHeading }}</div>
+        <sc-for list="{{ contacts }}" as="c" hint-placeholder-count="2">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 7px 0; border-bottom: 1px solid oklch(0.9 0.006 90);">
+            <a href="{{ c.href }}" style="font-size: 14px;">{{ c.label }}</a>
+            <span style="font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace; font-size: 11px; color: oklch(0.55 0.03 90);">{{ c.tag }}</span>
+          </div>
+        </sc-for>
+      </div>
+
+      <sc-if value="{{ hasChannel }}">
+        <div>
+          <div style="font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace; font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: oklch(0.55 0.03 90); margin-bottom: 8px;">{{ channelHeading }}</div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 7px 0; border-bottom: 1px solid oklch(0.9 0.006 90);">
+            <a href="{{ channelHref }}" target="_blank" rel="noopener" style="font-size: 14px;">{{ channelLabel }}</a>
+            <span style="font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace; font-size: 11px; color: oklch(0.55 0.03 90);">telegram</span>
+          </div>
+        </div>
+      </sc-if>
+    </div>
+
+    <div>
+      <p style="font-size: 15px; line-height: 1.6; color: oklch(0.35 0.01 90); margin: 0 0 24px;">{{ heroSubtitle }}</p>
+
+      <div style="margin-bottom: 20px;">
+        <button onClick="{{ openModal }}" style="font-size: 14px; font-weight: 600; background: oklch(0.22 0.01 90); color: oklch(0.98 0.006 90); border: none; border-radius: 30px; padding: 11px 20px; cursor: pointer;">{{ ctaLabel }}</button>
+      </div>
+
+      <sc-if value="{{ modalOpen }}">
+        <div onClick="{{ closeModal }}" style="position: fixed; inset: 0; background: oklch(0.2 0.01 90 / 0.4); display: flex; align-items: center; justify-content: center; z-index: 10;">
+          <div onClick="{{ stopPropagation }}" style="background: oklch(0.995 0.004 90); border-radius: 16px; padding: 28px; width: 100%; max-width: 320px;">
+            <div style="font-size: 16px; font-weight: 600; margin-bottom: 16px;">{{ modalHeading }}</div>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <a href="{{ ctaTelegramHref }}" style="border: 1px solid oklch(0.85 0.006 90); border-radius: 10px; padding: 10px 14px; font-size: 14px; text-align: center;">{{ ctaTelegramLabel }}</a>
+              <a href="{{ ctaEmailHref }}" style="border: 1px solid oklch(0.85 0.006 90); border-radius: 10px; padding: 10px 14px; font-size: 14px; text-align: center;">{{ ctaEmailLabel }}</a>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+
+      <div style="margin-bottom: 20px;">
+        <div style="font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace; font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: oklch(0.55 0.03 90); margin-bottom: 8px;">{{ aboutHeading }}</div>
+        <p style="font-size: 14px; line-height: 1.6; color: oklch(0.3 0.01 90); margin: 0;">{{ aboutText }}</p>
+      </div>
+
+      <div style="margin-bottom: 20px;">
+        <div style="font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace; font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: oklch(0.55 0.03 90); margin-bottom: 8px;">{{ methodExplainHeading }}</div>
+        <p style="font-size: 14px; line-height: 1.6; color: oklch(0.3 0.01 90); margin: 0 0 12px;">{{ methodExplainIntro }}</p>
+        <sc-for list="{{ methodExplainItems }}" as="mi" hint-placeholder-count="3">
+          <div style="padding: 9px 0; border-bottom: 1px solid oklch(0.9 0.006 90);">
+            <div style="font-size: 14px; font-weight: 600; margin-bottom: 2px;">{{ mi.title }}</div>
+            <div style="font-size: 13px; line-height: 1.5; color: oklch(0.4 0.01 90);">{{ mi.text }}</div>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="margin-bottom: 20px;">
+        <div style="font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace; font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: oklch(0.55 0.03 90); margin-bottom: 8px;">{{ forWhomHeading }}</div>
+        <sc-for list="{{ forWhom }}" as="item" hint-placeholder-count="4">
+          <div style="padding: 7px 0; border-bottom: 1px solid oklch(0.9 0.006 90); font-size: 14px; line-height: 1.4;">{{ item.text }}</div>
+        </sc-for>
+      </div>
+
+      <div style="margin-bottom: 20px;">
+        <div style="font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace; font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: oklch(0.55 0.03 90); margin-bottom: 8px;">{{ methodHeading }}</div>
+        <sc-for list="{{ method }}" as="m" hint-placeholder-count="4">
+          <div style="display: flex; gap: 12px; padding: 7px 0; border-bottom: 1px solid oklch(0.9 0.006 90);">
+            <span style="font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace; font-size: 12px; color: oklch(0.55 0.15 150); flex-shrink: 0; width: 18px;">{{ m.index }}</span>
+            <div style="font-size: 14px; line-height: 1.4;">
+              <div>{{ m.text }}</div>
+              <sc-if value="{{ m.sub }}">
+                <div style="margin-top: 2px;">{{ m.sub }}</div>
+              </sc-if>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="margin-bottom: 20px;">
+        <button onClick="{{ openModal }}" style="font-size: 14px; font-weight: 600; background: oklch(0.22 0.01 90); color: oklch(0.98 0.006 90); border: none; border-radius: 30px; padding: 11px 20px; cursor: pointer;">{{ ctaLabel }}</button>
+      </div>
+
+      <details style="margin-bottom: 20px;">
+        <summary style="font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace; font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: oklch(0.55 0.03 90); cursor: pointer; margin-bottom: 8px;">{{ certHeading }}</summary>
+        <sc-for list="{{ certificates }}" as="cert" hint-placeholder-count="2">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 7px 0; border-bottom: 1px solid oklch(0.9 0.006 90);">
+            <a href="{{ cert.href }}" target="_blank" rel="noopener" style="font-size: 13px;">{{ cert.label }}</a>
+            <span style="font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace; font-size: 11px; color: oklch(0.55 0.03 90);">{{ certTag }}</span>
+          </div>
+        </sc-for>
+      </details>
+
+    </div>
+
+    <div style="grid-column: 1 / -1; padding-top: 16px; border-top: 1px solid oklch(0.9 0.006 90); display: flex; justify-content: flex-end; font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace; font-size: 11px; color: oklch(0.6 0.02 90);">
+      <span>markinakv.com</span>
+    </div>
+
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const COPY = {
+  ru: {
+    backLabel: '← на главную',
+    langSwitchLabel: 'EN',
+    heroName: 'Катерина Маркина',
+    heroTagline: 'Neurointegration Trainer · сертифицированная программа (ICF-аккредитация)',
+    heroSubtitle: 'Помогаю выстраивать устойчивые изменения без выгорания — через работу с нервной системой, а не через силу воли.',
+    ctaLabel: 'Записаться на бесплатную велком-встречу',
+    modalHeading: 'Как удобнее связаться?',
+    ctaTelegramLabel: 'Telegram',
+    ctaTelegramHref: 'https://t.me/markinakv',
+    ctaEmailLabel: 'ni@markinakv.com',
+    ctaEmailHref: 'mailto:ni@markinakv.com',
+    contactHeading: 'Связаться',
+    contacts: [
+      { label: 'ni@markinakv.com', tag: 'почта', href: 'mailto:ni@markinakv.com' },
+    ],
+    hasChannel: true,
+    channelHeading: 'Канал',
+    channelLabel: 'mind-hearted | feel. think. act.',
+    channelHref: 'https://t.me/mindhearted',
+    aboutHeading: 'Обо мне',
+    aboutText: 'Сертифицированный тренер по нейроинтеграции.',
+    methodExplainHeading: 'О методе',
+    methodExplainIntro: 'Нейроинтеграция смотрит на изменения через три вещи: в каком ты состоянии, как думаешь и что реально делаешь.',
+    methodExplainItems: [
+      { title: 'Состояние', text: 'Учимся не срываться в перегруз или в апатию, а держаться в спокойном, работоспособном состоянии, даже когда вокруг стресс.' },
+      { title: 'Мышление', text: 'Разбираемся, почему мы буксуем и сами себе мешаем, и учимся выходить из этих привычных петель.' },
+      { title: 'Действия', text: 'Вместо больших планов на годы вперёд работаем короткими спринтами по 3 недели — понемногу, но регулярно и без надрыва.' },
+    ],
+    forWhomHeading: 'Кому подходит',
+    forWhom: [
+      { text: 'Выгорание и хроническая усталость' },
+      { text: 'Тревожность и сложности с саморегуляцией' },
+      { text: 'Ощущение «застревания» несмотря на терапию' },
+      { text: 'Желание перемен без нового стресса' },
+    ],
+    methodHeading: 'Как проходит работа',
+    method: [
+      { index: '01', text: 'Велком-встреча — знакомство и запрос' },
+      { index: '02', text: 'Стартовое тестирование по шкалам института нейроинтеграции' },
+      { index: '03', text: 'Планирование спринта с учетом запроса и результатов тестов' },
+      { index: '04', text: 'Разработка и внедрение подходящей тебе системы трекинга' },
+      { index: '05', text: 'Индивидуальные сессии', sub: 'работа на уровне состояния, мышления и действий' },
+      { index: '06', text: 'Практики между встречами' },
+      { index: '07', text: 'Отслеживание изменений в динамике' },
+    ],
+    certHeading: 'Сертификаты',
+    certTag: 'certificate',
+    certificates: [
+      { label: 'Neurointegration Fundamentals Certificate', href: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/NI%20Certificate%20from%20Katya-X9NdSKLLqjfR0sd3LfkOlY8hTqMTAQ.png' },
+      { label: 'Neurointegration Practical Module Certificate', href: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/NI%20pratcical%20module-iqiQXEif8yZYJxkJi7NFtFLYQWj2lq.png' },
+    ],
+  },
+  en: {
+    backLabel: '← home',
+    langSwitchLabel: 'RU',
+    heroName: 'Katerina Markina',
+    heroTagline: 'Neurointegration Trainer · certified (ICF-accredited program)',
+    heroSubtitle: 'Helping people build sustainable change without burnout — by working with the nervous system, not willpower.',
+    ctaLabel: 'Book a free welcome call',
+    modalHeading: 'How would you like to reach out?',
+    ctaTelegramLabel: 'Telegram',
+    ctaTelegramHref: 'https://t.me/markinakv',
+    ctaEmailLabel: 'ni@markinakv.com',
+    ctaEmailHref: 'mailto:ni@markinakv.com',
+    contactHeading: 'Contact',
+    contacts: [
+      { label: 'ni@markinakv.com', tag: 'mail', href: 'mailto:ni@markinakv.com' },
+    ],
+    hasChannel: false,
+    aboutHeading: 'About',
+    aboutText: 'Certified neurointegration trainer.',
+    methodExplainHeading: 'About the method',
+    methodExplainIntro: 'Neurointegration looks at change through three things: the state you\u2019re in, how you think, and what you actually do.',
+    methodExplainItems: [
+      { title: 'State', text: 'Learning to avoid tipping into overload or apathy, and staying calm and capable even when things around you are stressful.' },
+      { title: 'Thinking', text: 'Figuring out why we get stuck and self-sabotage, and learning to step out of those familiar loops.' },
+      { title: 'Actions', text: 'Instead of big plans years out, working in short 3-week sprints — a little at a time, but consistent and without burning out.' },
+    ],
+    forWhomHeading: 'Who this is for',
+    forWhom: [
+      { text: 'Burnout and chronic fatigue' },
+      { text: 'Anxiety and difficulty self-regulating' },
+      { text: 'Feeling "stuck" despite therapy' },
+      { text: 'Wanting change without adding more stress' },
+    ],
+    methodHeading: 'How we work',
+    method: [
+      { index: '01', text: 'Welcome call — getting acquainted, your request' },
+      { index: '02', text: 'Initial testing on the Neurointegration Institute scales' },
+      { index: '03', text: 'Sprint planning' },
+      { index: '04', text: 'Building and rolling out a tracking system that fits you' },
+      { index: '05', text: 'One-on-one sessions', sub: 'working on state, thinking, and actions' },
+      { index: '06', text: 'Practices between sessions' },
+      { index: '07', text: 'Tracking change over time' },
+    ],
+    certHeading: 'Certificates',
+    certTag: 'certificate',
+    certificates: [
+      { label: 'Neurointegration Fundamentals Certificate', href: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/NI%20Certificate%20from%20Katya-X9NdSKLLqjfR0sd3LfkOlY8hTqMTAQ.png' },
+      { label: 'Neurointegration Practical Module Certificate', href: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/NI%20pratcical%20module-iqiQXEif8yZYJxkJi7NFtFLYQWj2lq.png' },
+    ],
+  },
+};
+
+class Component extends DCLogic {
+  state = { lang: 'ru', modalOpen: false };
+  renderVals() {
+    const t = COPY[this.state.lang];
+    return {
+      ...t,
+      modalOpen: this.state.modalOpen,
+      toggleLang: () => this.setState(s => ({ lang: s.lang === 'ru' ? 'en' : 'ru' })),
+      openModal: () => this.setState({ modalOpen: true }),
+      closeModal: () => this.setState({ modalOpen: false }),
+      stopPropagation: (e) => e.stopPropagation(),
+    };
+  }
+}
+
+</script>
+</body>
+</html>
