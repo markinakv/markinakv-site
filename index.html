@@ -81,7 +81,7 @@
         <h1 style="font-size: 24px; font-weight: 600; margin: 0 0 6px; letter-spacing: -0.01em;">{{ heroName }}</h1>
         <div style="font-size: 13px; color: oklch(0.4 0.05 150); line-height: 1.4;">{{ heroTagline }}</div>
       </div>
-      <button onClick="{{ toggleLang }}" style="align-self: flex-start; font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace; font-size: 12px; letter-spacing: 0.03em; background: none; border: 1px solid oklch(0.7 0.02 90); border-radius: 20px; padding: 5px 12px; cursor: pointer; color: oklch(0.4 0.05 150);">{{ langSwitchLabel }}</button>
+      <a href="{{ langSwitchHref }}" style="display: inline-block; align-self: flex-start; font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace; font-size: 12px; letter-spacing: 0.03em; background: none; border: 1px solid oklch(0.7 0.02 90); border-radius: 20px; padding: 5px 12px; color: oklch(0.4 0.05 150); opacity: 1;">{{ langSwitchLabel }}</a>
 
       <div>
         <div style="font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace; font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: oklch(0.55 0.03 90); margin-bottom: 8px;">{{ contactHeading }}</div>
@@ -213,8 +213,23 @@ const COPY = {
   },
 };
 
+function isRuPath() {
+  const p = window.location.pathname;
+  return p === '/ru' || p.startsWith('/ru/');
+}
+function langHref(toRu) {
+  const p = window.location.pathname;
+  if (toRu) {
+    if (isRuPath()) return p;
+    return '/ru' + (p === '/' ? '/index.html' : p);
+  }
+  if (p === '/ru') return '/';
+  if (p.startsWith('/ru/')) return p.slice(3);
+  return p;
+}
+
 class Component extends DCLogic {
-  state = { lang: 'ru', location: null };
+  state = { lang: isRuPath() ? 'ru' : 'en', location: null };
 
   componentDidMount() {
     fetch('/api/location')
@@ -233,7 +248,7 @@ class Component extends DCLogic {
     }
     return {
       ...t,
-      toggleLang: () => this.setState(s => ({ lang: s.lang === 'ru' ? 'en' : 'ru' })),
+      langSwitchHref: langHref(this.state.lang !== 'ru'),
       whereLine,
       whereVisible: !!whereLine,
     };
