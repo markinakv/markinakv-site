@@ -1,6 +1,9 @@
 {
+  "redirects": [
+    { "source": "/ru", "destination": "/ru/", "statusCode": 308 }
+  ],
   "rewrites": [
-    { "source": "/ru", "destination": "/index.html" },
+    { "source": "/ru/", "destination": "/index.html" },
     { "source": "/ru/:match*", "destination": "/:match*" }
   ]
 }
