@@ -48,7 +48,7 @@ posthog.init('phc_pzVXHwrtXHBxQvSZMLTv8RKynT4oJGRTofb6DLixLo7C',{api_host:'https
       </div>
       <div class="cta-row">
         <a class="btn" href="https://forms.gle/GpxmvWf3i1kqzAqo9" target="_blank" rel="noopener" data-cta="hero">Оставить предзаявку</a>
-        <span class="note">Анкета — 10 минут. Напишу, когда соберу группу и объявлю дату старта.</span>
+        <span class="note">Анкета — 10 минут. Свяжусь с тобой при запуске следующей группы.</span>
       </div>
     </div>
     <div class="hero-photo">
@@ -134,21 +134,69 @@ posthog.init('phc_pzVXHwrtXHBxQvSZMLTv8RKynT4oJGRTofb6DLixLo7C',{api_host:'https
 
   <!-- 4. КАК ЭТО РАБОТАЕТ: свёрнутые карточки -->
   <section id="how">
-    <span class="eyebrow">метод</span>
-    <p class="lead">Нейроинтеграция работает сразу на трёх уровнях: состояние, мышление и действия. Выравниваем состояние, чтобы планы не упирались в истощение, и планируем шаги такого размера, который выдерживает обычная неделя.</p>
-    <a class="more" href="/neuro/#how">Почему это работает →</a>
+    <span class="eyebrow">как это работает</span>
+    <h2>Почему это работает</h2>
+    <div class="how-tabs" role="tablist">
+      <button class="how-tab" aria-expanded="false" aria-controls="p-method" data-how>
+        <span class="t">Метод <span class="arr">▸</span></span>
+        <span class="s">Состояние → мышление → действия</span>
+      </button>
+      <button class="how-tab" aria-expanded="false" aria-controls="p-sprint" data-how>
+        <span class="t">Спринт <span class="arr">▸</span></span>
+        <span class="s">Почему 4 недели и 3 проекта, а не большой план</span>
+      </button>
+      <button class="how-tab" aria-expanded="false" aria-controls="p-theory" data-how>
+        <span class="t">Теория <span class="arr">▸</span></span>
+        <span class="s">Что из нейробиологии разберём по ходу</span>
+      </button>
+    </div>
+
+    <div class="how-panel" id="p-method" hidden>
+      <p>Нейроинтеграция работает сразу на трёх уровнях. Выравниваем состояние, чтобы планы не упирались в истощение. Меняем мышление, которое возвращает в старые петли. Планируем действия такого размера, который выдерживает обычная неделя.</p>
+      <div class="mini3">
+        <div><b>Состояние</b><span>Сон, ресурс, стресс-реакция, восстановление.</span></div>
+        <div><b>Мышление</b><span>Установки, из-за которых застреваем в подготовке, саботируем планы или хватаемся за всё сразу.</span></div>
+        <div><b>Действия</b><span>Маленькие системные шаги в ритме спринта и рефлексия.</span></div>
+      </div>
+    </div>
+
+    <div class="how-panel" id="p-sprint" hidden>
+      <p>Большие цели ломаются о реальность. Спринт — это четыре недели и три проекта, которые видно целиком. Короткие циклы помогают регулярно замечать, что стоит усилить, а законченный цикл помогает мозгу закрепить опыт изменений.</p>
+      <div class="rule"><b>10/90</b><span>10% времени на новое, 90% жизни остаются как есть. Такой ритм выдерживается и при полной загрузке, и в переездах, и в путешествиях.</span></div>
+    </div>
+
+    <div class="how-panel" id="p-theory" hidden>
+      <div class="tlist">
+        <div><b>Гомеостаз</b> — почему мозг саботирует даже желанные изменения</div>
+        <div><b>Нейропластичность</b> — почему нужны повторение и фокус, а не сила воли</div>
+        <div><b>Серотониново-дофаминовый баланс</b> — почему нельзя жать на газ и тормоз одновременно</div>
+        <div><b>Цикл стресс-реакции</b> — где он ломается и превращается в выгорание</div>
+        <div><b>Амигдала и префронтальная кора</b> — почему в стрессе выключается нужный режим мышления</div>
+      </div>
+    </div>
   </section>
 
   <!-- 5. КТО ВЕДЁТ -->
   <section id="author">
     <span class="eyebrow">кто ведёт</span>
-    <div class="author-mini">
-      <img src="/uploads/DSC_8644_resized.jpg" alt="Катерина Маркина">
-      <div>
-        <h3>Катерина Маркина</h3>
-        <p>Сертифицированный тренер по методу нейроинтеграции Катерины Ленгольд, учусь коучингу на ICF-аккредитованной программе. Нейроспринт сначала проверила на себе и живу в этом ритме сама.</p>
-        <a class="more" href="/neuro/#author">Обо мне и сертификаты →</a>
+    <div class="author-g">
+      <div class="author-text">
+        <h2>Катерина Маркина</h2>
+        <p>Сертифицированный тренер по <a href="https://neurointegration.org/ru" target="_blank" rel="noopener">методу нейроинтеграции</a> Катерины Ленгольд. Учусь коучингу на ICF-аккредитованной программе. До этого — операционный менеджмент в B2B SaaS, adtech, образовании и благотворительности.</p>
+        <div class="tags">
+          <span>7+ лет в IT</span><span>выгорание и выход из него</span><span>опыт эмиграции</span><span>диджитал-номадство</span><span>смены карьерного трека</span>
+        </div>
+        <p class="strong" style="display:none"><span class="todo">ЧЕРНОВИК — перепиши своими словами:</span> Моя сильная сторона — превращать хаос в систему, которую реально выдерживать. Я много лет выстраивала процессы в стартапах и знаю, как легко начать и как тяжело продолжить. В нейроинтеграции я люблю то, что она не требует ломать себя: сначала состояние, потом всё остальное.</p>
+        <p>Нейроспринт я сначала проверила на себе и живу в этом ритме сама. Работаю индивидуально и в группах.</p>
       </div>
+      <div><details class="certs" open>
+          <summary>▸ сертификаты и дипломы</summary>
+          <div>
+            <a href="https://neurosprintgroup.markinakv.com/uploads/Journaling%20Quotes%20Certificate.png" target="_blank" rel="noopener">Neurointegration Fundamentals Certificate</a>
+            <a href="https://neurosprintgroup.markinakv.com/uploads/%D1%81%D0%B5%D1%80%D1%82%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%82.jpg" target="_blank" rel="noopener">Neurointegration Practical Module Certificate</a>
+            <a href="https://neurosprintgroup.markinakv.com/uploads/%D0%94%D0%B8%D0%BF%D0%BB%D0%BE%D0%BC%20%D0%BE%20%D0%BF%D1%80%D0%BE%D1%84%D0%B5%D1%81%D1%81%D0%B8%D0%BE%D0%BD%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B9%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BF%D0%BE%D0%B4%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D0%BA%D0%B5.pdf" target="_blank" rel="noopener">Диплом о профессиональной переподготовке</a>
+          </div>
+        </details></div>
     </div>
   </section>
 
