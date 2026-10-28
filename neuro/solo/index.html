@@ -22,6 +22,7 @@ posthog.init('phc_pzVXHwrtXHBxQvSZMLTv8RKynT4oJGRTofb6DLixLo7C',{api_host:'https
       <a class="l" href="#result">Что даст</a>
       <a class="l" href="#path">Как проходит</a>
       <a class="l" href="#terms">Условия</a>
+      <a class="l" href="#author">Кто ведёт</a>
       <a class="l" href="#faq">Вопросы</a>
       <a class="l" href="/neuro/group/">Группа</a>
       <a class="btn sm" href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3bRaUebNc3aKSK7VDZ2QGoo601sHcT0FT3uLCPKw3ZBwr8zeXiUF8RNBZhixEakBUpJJjt2po4" target="_blank" rel="noopener" data-cta="nav">Велком-встреча</a>
@@ -126,6 +127,51 @@ posthog.init('phc_pzVXHwrtXHBxQvSZMLTv8RKynT4oJGRTofb6DLixLo7C',{api_host:'https
     <a class="btn" href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3bRaUebNc3aKSK7VDZ2QGoo601sHcT0FT3uLCPKw3ZBwr8zeXiUF8RNBZhixEakBUpJJjt2po4" target="_blank" rel="noopener" data-cta="terms">Записаться на велком-встречу</a>
   </section>
 
+  <section id="how">
+    <h2>Почему это работает</h2>
+    <div class="how-tabs" role="tablist">
+      <button class="how-tab" aria-expanded="false" aria-controls="p-method" data-how>
+        <span class="t">Метод</span>
+        <span class="s">Состояние → мышление → действия</span>
+        <span class="more-t"></span>
+      </button>
+      <button class="how-tab" aria-expanded="false" aria-controls="p-sprint" data-how>
+        <span class="t">Спринт</span>
+        <span class="s">Почему 4 недели и 3 проекта, а не большой план</span>
+        <span class="more-t"></span>
+      </button>
+      <button class="how-tab" aria-expanded="false" aria-controls="p-theory" data-how>
+        <span class="t">Теория</span>
+        <span class="s">Что из нейробиологии разберём по ходу</span>
+        <span class="more-t"></span>
+      </button>
+    </div>
+
+    <div class="how-panel" id="p-method" hidden>
+      <p>Нейроинтеграция работает сразу на трёх уровнях. Выравниваем состояние, чтобы планы не упирались в истощение. Меняем мышление, которое возвращает в старые петли. Планируем действия такого размера, который выдерживает обычная неделя.</p>
+      <div class="mini3">
+        <div><b>Состояние</b><span>Сон, ресурс, стресс-реакция, восстановление.</span></div>
+        <div><b>Мышление</b><span>Установки, из-за которых застреваем в подготовке, саботируем планы или хватаемся за всё сразу.</span></div>
+        <div><b>Действия</b><span>Маленькие системные шаги в ритме спринта и рефлексия.</span></div>
+      </div>
+    </div>
+
+    <div class="how-panel" id="p-sprint" hidden>
+      <p>Большие цели ломаются о реальность. Спринт — это четыре недели и три проекта, которые видно целиком. Короткие циклы помогают регулярно замечать, что стоит усилить, а законченный цикл помогает мозгу закрепить опыт изменений.</p>
+      <div class="rule"><b>10/90</b><span>10% времени на новое, 90% жизни остаются как есть. Такой ритм выдерживается и при полной загрузке, и в переездах, и в путешествиях.</span></div>
+    </div>
+
+    <div class="how-panel" id="p-theory" hidden>
+      <div class="tlist">
+        <div><b>Гомеостаз</b> — почему мозг саботирует даже желанные изменения</div>
+        <div><b>Нейропластичность</b> — почему нужны повторение и фокус, а не сила воли</div>
+        <div><b>Серотониново-дофаминовый баланс</b> — почему нельзя жать на газ и тормоз одновременно</div>
+        <div><b>Цикл стресс-реакции</b> — где он ломается и превращается в выгорание</div>
+        <div><b>Амигдала и префронтальная кора</b> — почему в стрессе выключается нужный режим мышления</div>
+      </div>
+    </div>
+  </section>
+
   <section id="tests">
     <details class="fold" id="tests-fold">
       <summary>
@@ -166,12 +212,53 @@ posthog.init('phc_pzVXHwrtXHBxQvSZMLTv8RKynT4oJGRTofb6DLixLo7C',{api_host:'https
 
   <section id="author">
     <span class="eyebrow">кто ведёт</span>
-    <div class="author-mini">
-      <img src="/uploads/DSC_8644_resized.jpg" alt="Катерина Маркина">
+    <div class="author-g">
+      <div class="author-text">
+        <h2>Катерина Маркина</h2>
+        <p>Сертифицированный тренер по <a href="https://neurointegration.org/ru" target="_blank" rel="noopener">методу нейроинтеграции</a> Катерины Ленгольд. Коуч, практикующий по стандартам ICF. А ещё операционный менеджер и продюсер: 10+ лет запускаю проекты в B2B SaaS, adtech, образовании и благотворительности.</p>
+        <div class="tags">
+          <span>7+ лет в IT</span><span>выгорание и выход из него</span><span>опыт эмиграции</span><span>диджитал-номадство</span><span>смены карьерного трека</span>
+        </div>
+        <p class="strong" style="display:none"><span class="todo">ЧЕРНОВИК — перепиши своими словами:</span> Моя сильная сторона — превращать хаос в систему, которую реально выдерживать. Я много лет выстраивала процессы в стартапах и знаю, как легко начать и как тяжело продолжить. В нейроинтеграции я люблю то, что она не требует ломать себя: сначала состояние, потом всё остальное.</p>
+      </div>
+      <div><div class="certs certs-static"><span class="eyebrow">сертификаты и дипломы</span><div>
+            <a href="https://neurosprintgroup.markinakv.com/uploads/Journaling%20Quotes%20Certificate.png" target="_blank" rel="noopener">Neurointegration Fundamentals Certificate</a>
+            <a href="https://neurosprintgroup.markinakv.com/uploads/%D1%81%D0%B5%D1%80%D1%82%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%82.jpg" target="_blank" rel="noopener">Neurointegration Practical Module Certificate</a>
+            <a href="https://neurosprintgroup.markinakv.com/uploads/%D0%94%D0%B8%D0%BF%D0%BB%D0%BE%D0%BC%20%D0%BE%20%D0%BF%D1%80%D0%BE%D1%84%D0%B5%D1%81%D1%81%D0%B8%D0%BE%D0%BD%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B9%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BF%D0%BE%D0%B4%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D0%BA%D0%B5.pdf" target="_blank" rel="noopener">Диплом о профессиональной переподготовке</a>
+          </div></div></div>
+    </div>
+  </section>
+
+  <section id="reviews">
+    <span class="eyebrow">отзывы</span>
+    <h2>Что говорят клиенты</h2>
+    <div class="revs">
+      <div class="rev"><p>«Очень хочется поделиться — я прошла уже три спринта, без срывов.»</p></div>
+      <div class="rev"><p>«Главное — ощущение опоры: взаимодействие стабильное, и от этого спокойнее самой.»</p></div>
+      <div class="rev"><p>«Получилось увидеть и назвать то, что я сама себе объяснить не могла.»</p></div>
+      <div class="rev"><p>«В работе можно быть честной и говорить о том, что не сделала, — без страха осуждения и укора. И находить решения, которые помогают двигаться дальше.»</p></div>
+    </div>
+    <p class="note-s">клиенты индивидуального сопровождения</p>
+  </section>
+
+  <section id="fit">
+    <span class="eyebrow">честный фильтр</span>
+    <h2>Кому подходит, а кому нет</h2>
+    <div class="fit">
       <div>
-        <h3>Катерина Маркина</h3>
-        <p>Сертифицированный тренер по методу нейроинтеграции Катерины Ленгольд, коуч, практикующий по стандартам ICF.</p>
-        <a class="more" href="/neuro/#author">Обо мне и сертификаты →</a>
+        <h3 style="color:var(--green)">Подходит</h3>
+        <ul>
+          <li>Хочется системного подхода к тому, что делаешь по жизни</li>
+          <li>Есть 2–3 области, которые хочется развивать</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="color:var(--mute)">Не подходит сейчас</h3>
+        <ul>
+          <li>Острый кризис и нужна поддержка специалиста</li>
+          <li>Нужен быстрый результат за неделю без изменения ритма</li>
+          <li>Хочется, чтобы кто-то сделал вместо тебя — я иду рядом, а не вместо</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -182,7 +269,7 @@ posthog.init('phc_pzVXHwrtXHBxQvSZMLTv8RKynT4oJGRTofb6DLixLo7C',{api_host:'https
       <details><summary>Сколько времени нужно?<span class="arr">▸</span></summary>
         <p>Один спринт — 4 недели: 3 недели работы и неделя интеграции. Его хватит, чтобы попробовать метод. Чтобы он стал частью жизни, нужно 8–12 недель, то есть 2–3 спринта.</p></details>
       <details><summary>Можно начать с тестов?<span class="arr">▸</span></summary>
-        <p>Да. Пройди тесты Института нейроинтеграции и пришли мне результаты — разбор пришлю в течение суток. <a href="/neuro/#tests">Ссылки на тесты →</a></p></details>
+        <p>Да. Пройди тесты Института нейроинтеграции и пришли мне результаты — разбор пришлю в течение суток. <a href="#tests">Ссылки на тесты →</a></p></details>
       <details><summary>Это психотерапия?<span class="arr">▸</span></summary>
         <p>Нет. Это тренерская работа с состоянием, мышлением и действиями. Если по тестам видно, что нужна помощь психолога или врача, я скажу об этом прямо.</p></details>
     </div>
