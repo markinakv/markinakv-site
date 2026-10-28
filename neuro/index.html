@@ -65,11 +65,14 @@
     body { margin: 0; background: #f6f3ec; }
     a { color: #26241f; }
     a:hover { color: #3f6b55; }
-    .n-wrap { width: 100%; max-width: 760px; margin: 0 auto; padding: 0 24px; }
+    .n-wrap { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 24px; }
     .n-label { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: #6b655a; margin: 0 0 14px; }
     .n-h2 { font-size: 26px; font-weight: 600; letter-spacing: -.01em; line-height: 1.25; margin: 0 0 20px; }
     .n-p { font-size: 16px; line-height: 1.6; color: #3a362f; margin: 0; }
-    .n-sec { padding: 48px 0; border-top: 1px solid #e0dacd; }
+    .n-sec { padding: 36px 0; border-top: 1px solid #e0dacd; display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 12px 48px; align-items: start; }
+    .n-final { display: block; }
+    .n-head .n-h2 { font-size: 22px; margin: 0; }
+    .n-steps { display: grid; grid-template-columns: 1fr 1fr; column-gap: 28px; border-top: 1px solid #e0dacd; }
     .n-card { background: #fbf9f4; border: 1px solid #e0dacd; border-radius: 12px; padding: 18px 20px; }
     .n-card-title { font-weight: 600; margin-bottom: 6px; }
     .n-grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; }
@@ -90,6 +93,10 @@
     .n-row:hover .n-name { color: #3f6b55; }
     .n-tag { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; color: #6b655a; white-space: nowrap; }
     .n-about { display: grid; grid-template-columns: 180px 1fr; gap: 28px; align-items: start; }
+    @media (max-width: 820px) {
+      .n-sec { grid-template-columns: 1fr; }
+      .n-steps { grid-template-columns: 1fr; }
+    }
     @media (max-width: 640px) {
       .n-about { grid-template-columns: 1fr; }
       .n-photo { max-width: 200px; }
@@ -104,7 +111,7 @@
       <a href="{{ langSwitchHref }}" style="border: 1px solid #c9c1b0; border-radius: 999px; padding: 6px 12px; text-decoration: none;">{{ langSwitchLabel }}</a>
     </header>
 
-    <section style="padding: 48px 0 48px;">
+    <section style="padding: 40px 0 36px; max-width: 760px;">
       <p class="n-label">{{ heroLabel }}</p>
       <h1 style="margin: 0 0 16px; font-size: clamp(30px, 5vw, 42px); line-height: 1.12; font-weight: 600; letter-spacing: -.02em;">{{ heroTitle }}</h1>
       <p class="n-p" style="font-size: 18px; max-width: 600px; margin-bottom: 28px;">{{ heroSubtitle }}</p>
@@ -116,8 +123,8 @@
     </section>
 
     <section class="n-sec">
-      <p class="n-label">{{ forWhomLabel }}</p>
-      <h2 class="n-h2">{{ forWhomTitle }}</h2>
+      <div class="n-head"><p class="n-label">{{ forWhomLabel }}</p><h2 class="n-h2">{{ forWhomTitle }}</h2></div>
+      <div class="n-body">
       <div class="n-grid2" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
         <sc-for list="{{ forWhom }}" as="f" hint-placeholder-count="4">
           <div class="n-card" style="line-height: 1.5;">{{ f.text }}</div>
@@ -135,11 +142,12 @@
           <div style="display: grid; grid-template-columns: 24px 1fr; gap: 8px; padding: 10px 0; border-bottom: 1px solid #e0dacd; line-height: 1.5; color: #4f4a42;"><span style="font-family: 'IBM Plex Mono', ui-monospace, monospace; color: #6b655a;">✕</span><span>{{ x.text }}</span></div>
         </sc-for>
       </div>
+      </div>
     </section>
 
     <section class="n-sec">
-      <p class="n-label">{{ methodLabel }}</p>
-      <h2 class="n-h2">{{ methodTitle }}</h2>
+      <div class="n-head"><p class="n-label">{{ methodLabel }}</p><h2 class="n-h2">{{ methodTitle }}</h2></div>
+      <div class="n-body">
       <p class="n-p" style="margin-bottom: 20px;">{{ methodIntro }}</p>
       <div class="n-grid2">
         <sc-for list="{{ methodItems }}" as="m" hint-placeholder-count="3">
@@ -149,12 +157,13 @@
           </div>
         </sc-for>
       </div>
+      </div>
     </section>
 
     <section class="n-sec">
-      <p class="n-label">{{ stepsLabel }}</p>
-      <h2 class="n-h2">{{ stepsTitle }}</h2>
-      <div style="border-top: 1px solid #e0dacd;">
+      <div class="n-head"><p class="n-label">{{ stepsLabel }}</p><h2 class="n-h2">{{ stepsTitle }}</h2></div>
+      <div class="n-body">
+      <div class="n-steps">
         <sc-for list="{{ steps }}" as="s" hint-placeholder-count="7">
           <div class="n-step">
             <span class="n-num">{{ s.index }}</span>
@@ -166,11 +175,12 @@
         </sc-for>
       </div>
       <p style="margin: 16px 0 0; font-size: 14px; color: #6b655a;">{{ minPeriodNote }}</p>
+      </div>
     </section>
 
     <section id="tests" class="n-sec">
-      <p class="n-label">{{ testsLabel }}</p>
-      <h2 class="n-h2">{{ testsTitle }}</h2>
+      <div class="n-head"><p class="n-label">{{ testsLabel }}</p><h2 class="n-h2">{{ testsTitle }}</h2></div>
+      <div class="n-body">
       <p class="n-p" style="margin-bottom: 20px;">{{ testsIntro }}</p>
       <div class="n-card" style="margin-bottom: 24px;">
         <sc-for list="{{ testsList }}" as="t" hint-placeholder-count="5">
@@ -182,11 +192,12 @@
       </div>
       <a class="n-btn2" href="{{ testsHref }}" target="_blank" rel="noopener">{{ testsLabelBtn }}</a>
       <p style="margin: 14px 0 0; font-size: 13px; color: #6b655a;">{{ testsNote }}</p>
+      </div>
     </section>
 
     <section class="n-sec">
-      <p class="n-label">{{ aboutLabel }}</p>
-      <div class="n-about">
+      <div class="n-head"><p class="n-label">{{ aboutLabel }}</p></div>
+      <div class="n-body"><div class="n-about">
         <div class="n-photo" style="width: 100%; aspect-ratio: 3 / 4; overflow: hidden; border-radius: 12px;"><img src="/uploads/portrait.jpg" alt="{{ name }}" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 70%; transform: scale(1.4); transform-origin: 41% 58%; display: block;"></div>
         <div>
           <h2 class="n-h2" style="margin-bottom: 12px;">{{ name }}</h2>
@@ -197,22 +208,24 @@
           </sc-for>
         </div>
       </div>
+      </div>
     </section>
 
     <section class="n-sec">
-      <p class="n-label">{{ reviewsLabel }}</p>
-      <h2 class="n-h2">{{ reviewsTitle }}</h2>
+      <div class="n-head"><p class="n-label">{{ reviewsLabel }}</p><h2 class="n-h2">{{ reviewsTitle }}</h2></div>
+      <div class="n-body">
       <div class="n-grid2" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
         <sc-for list="{{ reviews }}" as="v" hint-placeholder-count="4">
           <div class="n-card" style="line-height: 1.55;">«{{ v.text }}»</div>
         </sc-for>
       </div>
       <p style="margin: 14px 0 0; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; color: #6b655a;">{{ reviewsNote }}</p>
+      </div>
     </section>
 
     <section class="n-sec">
-      <p class="n-label">{{ faqLabel }}</p>
-      <div style="border-top: 1px solid #e0dacd;">
+      <div class="n-head"><p class="n-label">{{ faqLabel }}</p></div>
+      <div class="n-body"><div style="border-top: 1px solid #e0dacd;">
         <sc-for list="{{ faq }}" as="q" hint-placeholder-count="5">
           <details class="n-faq">
             <summary>{{ q.q }}</summary>
@@ -220,9 +233,10 @@
           </details>
         </sc-for>
       </div>
+      </div>
     </section>
 
-    <section class="n-sec" style="padding-bottom: 32px;">
+    <section class="n-sec n-final" style="padding-bottom: 32px;">
       <h2 class="n-h2">{{ finalTitle }}</h2>
       <p class="n-p" style="margin-bottom: 24px;">{{ finalText }}</p>
       <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 32px;">
