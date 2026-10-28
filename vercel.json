@@ -1,14 +1,59 @@
 {
   "redirects": [
-    { "source": "/ru", "destination": "/ru/", "statusCode": 308 },
-    { "source": "/neurointegration.html", "destination": "/neuro/", "statusCode": 308 },
-    { "source": "/ru/neurointegration.html", "destination": "/ru/neuro/", "statusCode": 308 }
+    {
+      "source": "/ru",
+      "destination": "/ru/",
+      "statusCode": 308
+    },
+    {
+      "source": "/neurointegration.html",
+      "destination": "/neuro/",
+      "statusCode": 308
+    },
+    {
+      "source": "/ru/neurointegration.html",
+      "destination": "/ru/neuro/",
+      "statusCode": 308
+    },
+    {
+      "source": "/growth-operations.html",
+      "destination": "/ops/",
+      "statusCode": 308
+    },
+    {
+      "source": "/ru/growth-operations.html",
+      "destination": "/ru/ops/",
+      "statusCode": 308
+    }
   ],
   "rewrites": [
-    { "source": "/ru/", "destination": "/index.html" },
-    { "source": "/ru/:a/:b/", "destination": "/:a/:b/index.html" },
-    { "source": "/ru/:dir/", "destination": "/:dir/index.html" },
-    { "source": "/ru/neuro", "destination": "/neuro/index.html" },
-    { "source": "/ru/:match*", "destination": "/:match*" }
+    {
+      "source": "/ru/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/ru/:a/:b/",
+      "destination": "/:a/:b/index.html"
+    },
+    {
+      "source": "/ru/:dir/",
+      "destination": "/:dir/index.html"
+    },
+    {
+      "source": "/ru/neuro",
+      "destination": "/neuro/index.html"
+    },
+    {
+      "source": "/ru/ops",
+      "destination": "/ops/index.html"
+    },
+    {
+      "source": "/ru/cv",
+      "destination": "/cv/index.html"
+    },
+    {
+      "source": "/ru/:match*",
+      "destination": "/:match*"
+    }
   ]
 }
