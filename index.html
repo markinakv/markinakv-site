@@ -54,94 +54,86 @@
     autocapture: true,
   });
 </script>
+<title>Катерина Маркина</title>
+<meta name="description" content="Операционный менеджер, продюсер, тренер по нейроинтеграции, коуч.">
 <script src="./support.js"></script>
 </head>
 <body>
 <x-dc>
 <helmet>
   <meta name="design_doc_mode" content="page">
+  <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; }
-    body { margin: 0; }
-    a { color: inherit; text-decoration: none; border-bottom: 1px solid currentColor; opacity: 0.75; }
-    a:hover { opacity: 1; }
+    body { margin: 0; background: #f6f3ec; }
+    a { color: #26241f; }
+    a:hover { color: #3f6b55; }
+    .d-label { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: #6b655a; margin: 0 0 12px; }
+    .d-row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 14px 0; border-bottom: 1px solid #e0dacd; color: #26241f; text-decoration: none; }
+    .d-row:hover .d-name { color: #3f6b55; }
+    .d-row-sm { padding: 10px 0; }
+    .d-tag { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; color: #6b655a; white-space: nowrap; }
+    .d-desc { color: #4f4a42; }
+    .d-side { max-width: 320px; }
     @media (max-width: 720px) {
-      .mk-grid { grid-template-columns: 1fr !important; }
-      .mk-side { position: static !important; }
+      .d-side { max-width: none; }
+      .d-photo { max-width: 240px; }
     }
   </style>
-  <script src="./image-slot.js"></script>
 </helmet>
-<div style="background: oklch(0.98 0.006 90); min-height: 100vh; color: oklch(0.22 0.01 90); font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif; display: flex; justify-content: center;">
-  <div class="mk-grid" style="width: 100%; max-width: 880px; padding: 72px 24px 56px; display: grid; grid-template-columns: 280px 1fr; gap: 48px; align-items: start;">
+<div style="background: #f6f3ec; color: #26241f; font-family: 'Golos Text', system-ui, sans-serif; min-height: 100vh; display: flex; justify-content: center;">
+  <div style="width: 100%; max-width: 960px; padding: 72px 24px 56px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 56px; align-items: start;">
 
-    <div class="mk-side" style="position: sticky; top: 56px; display: flex; flex-direction: column; gap: 16px;">
-      <image-slot id="portrait-home" shape="rounded" radius="12" placeholder="фото" src="uploads/DSC_8644_resized.jpg" style="width: 100%; aspect-ratio: 1; flex-shrink: 0;"></image-slot>
+    <div class="d-side" style="display: flex; flex-direction: column; gap: 20px;">
+      <img class="d-photo" src="uploads/DSC_8644_resized.jpg" alt="{{ heroName }}" style="width: 100%; aspect-ratio: 1; object-fit: cover; object-position: 50% 30%; border-radius: 12px; display: block;">
       <div>
-        <h1 style="font-size: 24px; font-weight: 600; margin: 0 0 6px; letter-spacing: -0.01em;">{{ heroName }}</h1>
-        <div style="font-size: 13px; color: oklch(0.4 0.05 150); line-height: 1.4;">{{ heroTagline }}</div>
+        <h1 style="margin: 0 0 6px; font-size: 26px; font-weight: 600; letter-spacing: -.01em;">{{ heroName }}</h1>
+        <div style="font-size: 14px; line-height: 1.45; color: #4f4a42;">{{ roles }}</div>
       </div>
-      <a href="{{ langSwitchHref }}" style="display: inline-block; align-self: flex-start; font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace; font-size: 12px; letter-spacing: 0.03em; background: none; border: 1px solid oklch(0.7 0.02 90); border-radius: 20px; padding: 5px 12px; color: oklch(0.4 0.05 150); opacity: 1;">{{ langSwitchLabel }}</a>
-
+      <div style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12px; line-height: 1.6; color: #3f6b55;">
+        <span style="color: #6b655a;">{{ nomadLabel }}</span>
+        <sc-if value="{{ whereVisible }}"><br>{{ whereLine }}</sc-if>
+      </div>
       <div>
-        <div style="font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace; font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: oklch(0.55 0.03 90); margin-bottom: 8px;">{{ contactHeading }}</div>
+        <a href="{{ langSwitchHref }}" style="display: inline-block; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12px; border: 1px solid #c9c1b0; border-radius: 999px; padding: 6px 12px; text-decoration: none;">{{ langSwitchLabel }}</a>
+      </div>
+      <div style="margin-top: 8px;">
+        <p class="d-label">{{ contactHeading }}</p>
         <sc-for list="{{ contacts }}" as="c" hint-placeholder-count="2">
-          <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 7px 0; border-bottom: 1px solid oklch(0.9 0.006 90);">
-            <a href="{{ c.href }}" style="font-size: 14px;">{{ c.label }}</a>
-            <span style="font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace; font-size: 11px; color: oklch(0.55 0.03 90);">{{ c.tag }}</span>
-          </div>
+          <a class="d-row d-row-sm" href="{{ c.href }}"><span class="d-name">{{ c.label }}</span><span class="d-tag">{{ c.tag }}</span></a>
         </sc-for>
-        <div style="margin-top: 10px;">
-          <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2grvyquVZEw3fnTrbvL8l0IOTHUi1aYr94qkA4GNDqrmhQltSj5TO8OYlBdxWeIaxWnYi17clt" target="_blank" rel="noopener" style="display: block; text-align: center; border: none; font-size: 12px; font-weight: 600; background: oklch(0.22 0.01 90); color: oklch(0.98 0.006 90); border-radius: 30px; padding: 8px 14px;">{{ chatCtaLabel }}</a>
-        </div>
+        <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2grvyquVZEw3fnTrbvL8l0IOTHUi1aYr94qkA4GNDqrmhQltSj5TO8OYlBdxWeIaxWnYi17clt" target="_blank" rel="noopener" style="display: flex; align-items: center; justify-content: center; min-height: 44px; margin-top: 14px; padding: 0 20px; border-radius: 999px; background: #26241f; color: #f6f3ec; text-decoration: none; font-size: 14px; font-weight: 600;">{{ callCtaLabel }}</a>
       </div>
     </div>
 
-    <div>
-      <div style="margin: 0 0 32px;">
-        <p style="font-size: 15px; line-height: 1.6; color: oklch(0.35 0.01 90); margin: 0 0 12px;">{{ aboutTextIntro }}</p>
-        <p style="font-size: 15px; line-height: 1.6; color: oklch(0.35 0.01 90); margin: 0;">{{ aboutTextTrainerPrefix }}<a href="./neurointegration.html">{{ aboutTextTrainerLabel }}</a>{{ aboutTextTrainerSuffix }}<br>{{ aboutTextCoach }}</p>
+    <div style="display: flex; flex-direction: column; gap: 40px; min-width: 0;">
+      <div style="display: flex; flex-direction: column; gap: 12px; font-size: 16px; line-height: 1.6; color: #3a362f;">
+        <p style="margin: 0;">{{ about1 }}</p>
+        <p style="margin: 0;">{{ about2 }}</p>
       </div>
 
-      <div style="margin-bottom: 32px;">
-        <div style="font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace; font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: oklch(0.55 0.03 90); margin-bottom: 10px;">{{ aboutTextNomad }}</div>
-        <sc-if value="{{ whereVisible }}">
-          <p style="font-size: 15px; line-height: 1.6; color: oklch(0.35 0.01 90); margin: 0;">{{ whereLine }}</p>
-        </sc-if>
+      <div>
+        <p class="d-label">{{ projectsHeading }}</p>
+        <sc-for list="{{ projects }}" as="p" hint-placeholder-count="4">
+          <a class="d-row" href="{{ p.href }}"><span><span class="d-name" style="font-weight: 600;">{{ p.name }}</span><span class="d-desc"> — {{ p.desc }}</span></span><span class="d-tag">{{ p.tag }}</span></a>
+        </sc-for>
       </div>
 
-      <div style="margin-bottom: 32px;">
-        <div style="font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace; font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: oklch(0.55 0.03 90); margin-bottom: 10px;">{{ directionsHeading }}</div>
-        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-          <sc-for list="{{ directions }}" as="d" hint-placeholder-count="3">
-            <a href="{{ d.href }}" style="border: 1px solid oklch(0.9 0.006 90); flex: 1 1 160px; background: oklch(0.995 0.004 90); border-radius: 10px; padding: 14px 16px; display: block; opacity: 1;">
-              <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px; color: oklch(0.22 0.01 90);">{{ d.title }}</div>
-              <div style="font-size: 12px; line-height: 1.4; color: oklch(0.45 0.01 90);">{{ d.description }}</div>
-            </a>
-          </sc-for>
-        </div>
-      </div>
-
-      <div style="margin-bottom: 24px;">
-        <div style="font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace; font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: oklch(0.55 0.03 90); margin-bottom: 10px;">{{ socialsHeading }}</div>
+      <div>
+        <p class="d-label">{{ writingHeading }}</p>
         <sc-for list="{{ socials }}" as="s" hint-placeholder-count="4">
-          <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 7px 0; border-bottom: 1px solid oklch(0.9 0.006 90);">
-            <a href="{{ s.href }}" target="_blank" rel="noopener" style="font-size: 15px;">{{ s.label }}</a>
-            <span style="font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace; font-size: 11px; color: oklch(0.55 0.03 90);">{{ s.tag }}</span>
-          </div>
+          <a class="d-row" href="{{ s.href }}" target="_blank" rel="noopener"><span class="d-name">{{ s.label }}</span><span class="d-tag">{{ s.tag }}</span></a>
         </sc-for>
       </div>
-
     </div>
 
-    <div style="grid-column: 1 / -1; padding-top: 16px; border-top: 1px solid oklch(0.9 0.006 90); display: flex; justify-content: space-between; align-items: center; font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace; font-size: 11px; color: oklch(0.6 0.02 90);">
-      <a href="#" style="border-bottom: none; opacity: 1;">↑ {{ backToTopLabel }}</a>
+    <div style="grid-column: 1 / -1; padding-top: 16px; border-top: 1px solid #e0dacd; display: flex; justify-content: space-between; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; color: #6b655a;">
+      <a href="#" style="text-decoration: none; color: #6b655a;">↑ {{ backToTopLabel }}</a>
       <span>markinakv.com</span>
     </div>
 
   </div>
 </div>
-
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 const COPY = {
@@ -149,69 +141,60 @@ const COPY = {
     langSwitchLabel: 'EN',
     backToTopLabel: 'в начало',
     heroName: 'Катерина Маркина',
-    heroTagline: 'Growth Operation Management · Neurointegration Coaching · AI-first Projects · Social Impact · Digital Nomad',
-    aboutTextIntro: 'Операционный менеджер с опытом в B2B SaaS, adtech, театре, образовании и благотворительности. Выстраиваю работу так, чтобы за командой и продуктом стояли смысл, предсказуемая система и постоянное развитие.',
-    aboutTextTrainerPrefix: 'Сертифицированный ',
-    aboutTextTrainerLabel: 'тренер по нейроинтеграции',
-    aboutTextTrainerSuffix: '.',
-    aboutTextCoach: 'Обучаюсь на коуча по стандартам ICF',
-    aboutTextNomad: 'Диджитал-номад',
+    roles: 'Операционный менеджер · продюсер · тренер по\u00a0нейроинтеграции · коуч',
+    nomadLabel: 'Диджитал-номад',
+    nowLabel: 'Сейчас',
+    about1: '10+ лет запускаю проекты с\u00a0нуля: образовательные программы, фестивали, события, digital-продукты, благотворительные проекты. Последние годы выстраивала операционку в\u00a0стартапах.',
+    about2: 'Сейчас веду частную практику по\u00a0нейроинтеграции, помогаю людям настроить AI под свою жизнь и\u00a0продюсирую запуски для команд.',
     contactHeading: 'Связаться',
     contacts: [
-      { label: 'km@markinakv.com', tag: 'почта', href: 'mailto:km@markinakv.com' },
       { label: '@markinakv', tag: 'telegram', href: 'https://t.me/markinakv' },
+      { label: 'km@markinakv.com', tag: 'почта', href: 'mailto:km@markinakv.com' },
     ],
-    chatCtaLabel: 'Запланировать созвон — поболтать',
-    channelPreviewHeading: 'вот о чем подумала',
-    channelPreviewText: 'Telegram не даёт встроить ленту постов на сайт — но канал открыт, заходи почитать.',
-    socialsHeading: 'Соц. сети',
+    callCtaLabel: 'Запланировать созвон',
+    projectsHeading: 'Проекты',
+    projects: [
+      { name: 'Нейроинтеграция', desc: 'частная практика и\u00a0группы', tag: '→', href: './neurointegration.html' },
+      { name: 'AI для личной операционки', desc: 'консультации', tag: 'скоро', href: 'https://t.me/markinakv' },
+      { name: 'Продюсирование и\u00a0операционка', desc: 'запуски и\u00a0fractional operations для команд, парт-тайм', tag: '→', href: './growth-operations.html' },
+      { name: 'Благотворительность', desc: 'международный фонд помощи детям, школы в\u00a0Кении и\u00a0Бурунди', tag: '→', href: './charity.html' },
+    ],
+    writingHeading: 'Где пишу',
     socials: [
-      { label: 'markinakv', tag: 'instagram', href: 'https://www.instagram.com/markinakv' },
       { label: 'katerina-markina', tag: 'linkedin', href: 'https://www.linkedin.com/in/katerina-markina/' },
-      { label: 'markinakv', tag: 'facebook', href: 'https://www.facebook.com/markinakv' },
-      { label: 'вот о чем подумала | пуб_личный дневник', tag: 'telegram', href: 'https://t.me/mark_inalife' },
-      { label: 'mind-hearted | feel. think. act.', tag: 'telegram', href: 'https://t.me/mindhearted' },
-    ],
-    whereLabel: 'Где я',
-    whereUntilLabel: 'до',
-    directionsHeading: 'Чем занимаюсь',
-    directions: [
-      { title: 'Neurointegration', description: 'Устойчивые изменения с кайфом, смыслом и без выгорания', href: './neurointegration.html' },
-      { title: 'Growth Operation Management', description: 'CV и проекты', href: './growth-operations.html' },
-      { title: 'Благотворительные проекты', description: 'Проекты помощи детям в странах Африки', href: './charity.html' },
+      { label: 'markinakv', tag: 'instagram', href: 'https://www.instagram.com/markinakv' },
+      { label: 'Mind-hearted — про нейроинтеграцию', tag: 'telegram', href: 'https://t.me/mindhearted' },
+      { label: 'Вот о\u00a0чём подумала — [пуб]личный дневник', tag: 'telegram', href: 'https://t.me/mark_inalife' },
     ],
   },
   en: {
     langSwitchLabel: 'RU',
     backToTopLabel: 'to top',
     heroName: 'Katerina Markina',
-    heroTagline: 'Growth Operation Management · Neurointegration Coaching · AI-first Projects · Social Impact · Digital Nomad',
-    aboutTextIntro: 'Operations manager with experience across B2B SaaS, adtech, theatre, education, and charity. I build work so that meaning, a predictable system, and continuous growth stand behind the team and the product.',
-    aboutTextTrainerPrefix: 'Certified ',
-    aboutTextTrainerLabel: 'neurointegration trainer',
-    aboutTextTrainerSuffix: '.',
-    aboutTextCoach: 'Currently training as an ICF-standard coach.',
-    aboutTextNomad: 'Digital nomad',
+    roles: 'Operations manager · producer · neurointegration trainer · coach',
+    nomadLabel: 'Digital nomad',
+    nowLabel: 'Now',
+    about1: '10+ years launching projects from scratch: educational programs, festivals, events, digital products, charity projects. Most recently I built operations in startups.',
+    about2: 'Now I run a private neurointegration practice, help people set up AI for their lives, and produce launches for teams.',
     contactHeading: 'Contact',
     contacts: [
-      { label: 'km@markinakv.com', tag: 'mail', href: 'mailto:km@markinakv.com' },
+      { label: '@markinakv', tag: 'telegram', href: 'https://t.me/markinakv' },
+      { label: 'km@markinakv.com', tag: 'email', href: 'mailto:km@markinakv.com' },
     ],
-    chatCtaLabel: 'Schedule a call, just to chat',
-    channelPreviewHeading: 'вот о чем подумала',
-    channelPreviewText: 'Telegram doesn\u2019t allow embedding the feed on a site \u2014 but the channel is open, come read.',
-    socialsHeading: 'Social',
+    callCtaLabel: 'Schedule a call',
+    projectsHeading: 'Projects',
+    projects: [
+      { name: 'Neurointegration', desc: 'private practice and groups', tag: '→', href: './neurointegration.html' },
+      { name: 'AI for personal operations', desc: 'consultations', tag: 'soon', href: 'https://t.me/markinakv' },
+      { name: 'Producing & operations', desc: 'launches and fractional operations for teams, part-time', tag: '→', href: './growth-operations.html' },
+      { name: 'Charity', desc: 'an international foundation for children, schools in Kenya and Burundi', tag: '→', href: './charity.html' },
+    ],
+    writingHeading: 'Where I write',
     socials: [
-      { label: 'markinakv', tag: 'instagram', href: 'https://www.instagram.com/markinakv' },
       { label: 'katerina-markina', tag: 'linkedin', href: 'https://www.linkedin.com/in/katerina-markina/' },
-      { label: 'markinakv', tag: 'facebook', href: 'https://www.facebook.com/markinakv' },
-    ],
-    whereLabel: 'Where I am',
-    whereUntilLabel: 'until',
-    directionsHeading: 'What I do',
-    directions: [
-      { title: 'Neurointegration', description: 'Sustainable change without burnout', href: './neurointegration.html' },
-      { title: 'Growth Operation Management', description: 'CV and projects', href: './growth-operations.html' },
-      { title: 'Charitable Projects', description: 'Projects helping children', href: './charity.html' },
+      { label: 'markinakv', tag: 'instagram', href: 'https://www.instagram.com/markinakv' },
+      { label: 'Mind-hearted — on neurointegration', tag: 'telegram · ru', href: 'https://t.me/mindhearted' },
+      { label: 'Vot o chyom podumala — a public diary', tag: 'telegram · ru', href: 'https://t.me/mark_inalife' },
     ],
   },
 };
@@ -238,7 +221,7 @@ class Component extends DCLogic {
     fetch('/api/location')
       .then((r) => r.json())
       .then((location) => this.setState({ location }))
-      .catch(() => this.setState({ location: { country: null, city: null, until: null } }));
+      .catch(() => this.setState({ location: null }));
   }
 
   renderVals() {
@@ -246,8 +229,9 @@ class Component extends DCLogic {
     const loc = this.state.location;
     let whereLine = '';
     if (loc && loc.country) {
-      const place = loc.city ? `${loc.country}, ${loc.city}` : loc.country;
-      whereLine = `${t.whereLabel}: ${place} — ${t.whereUntilLabel} ${loc.until}`;
+      const country = this.state.lang === 'en' ? (loc.countryEn || loc.country) : loc.country;
+      const place = loc.city ? `${country}, ${loc.city}` : country;
+      whereLine = `${t.nowLabel}: ${place}` + (loc.gmt ? ` · ${loc.gmt}` : '');
     }
     return {
       ...t,
@@ -257,7 +241,6 @@ class Component extends DCLogic {
     };
   }
 }
-
 </script>
 </body>
 </html>
