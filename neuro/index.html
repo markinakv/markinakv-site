@@ -123,6 +123,12 @@
           <div class="n-card" style="line-height: 1.5;">{{ f.text }}</div>
         </sc-for>
       </div>
+      <p class="n-label" style="margin-top: 28px;">{{ notForLabel }}</p>
+      <div style="border-top: 1px solid #e0dacd;">
+        <sc-for list="{{ notFor }}" as="x" hint-placeholder-count="3">
+          <div style="display: grid; grid-template-columns: 24px 1fr; gap: 8px; padding: 10px 0; border-bottom: 1px solid #e0dacd; line-height: 1.5; color: #4f4a42;"><span style="font-family: 'IBM Plex Mono', ui-monospace, monospace; color: #6b655a;">✕</span><span>{{ x.text }}</span></div>
+        </sc-for>
+      </div>
     </section>
 
     <section class="n-sec">
@@ -243,8 +249,16 @@ const COPY = {
     forWhom: [
       { text: 'Выгорание и хроническая усталость' },
       { text: 'Тревожность и сложности с саморегуляцией' },
-      { text: 'Ощущение «застревания», даже после терапии' },
-      { text: 'Хочется перемен, но без нового стресса' },
+      { text: 'Ощущение застревания: непонятно, куда и как двигаться дальше' },
+      { text: 'То ничего не делаю и тревожусь, то делаю всё за раз — и потом лежу без сил' },
+      { text: 'Идеи и желание есть, но дела всё время откладываются на потом' },
+      { text: 'Ставлю цели и планирую, но через месяц уже не помню, чего хотел(а)' },
+    ],
+    notForLabel: 'Не подойдёт сейчас, если',
+    notFor: [
+      { text: 'Острый кризис и нужна поддержка психолога или врача, а не спринт' },
+      { text: 'Нужен быстрый результат за неделю без изменения привычного ритма' },
+      { text: 'Хочется, чтобы кто-то сделал вместо тебя: я иду рядом, а не вместо' },
     ],
     methodLabel: 'О методе',
     methodTitle: 'Что такое нейроинтеграция',
@@ -265,7 +279,7 @@ const COPY = {
       { index: '06', text: 'Практики между встречами', sub: 'трекинг по задачам спринта' },
       { index: '07', text: 'Замер изменений в динамике', sub: 'корректируем запрос и систему трекинга' },
     ],
-    minPeriodNote: 'Минимальный срок совместной работы, чтобы внедрить метод, — 4 недели.',
+    minPeriodNote: 'Познакомиться с методом и попробовать его на себе — от 4 недель. Чтобы метод стал частью жизни, рекомендую 8–12 недель.',
     testsLabel: 'Можно начать с тестов',
     testsTitle: 'Тесты Института нейроинтеграции с разбором',
     testsIntro: 'Если хочется сначала посмотреть на себя со стороны: проходишь анкету и тесты, а я делаю разбор результатов. Это помогает увидеть, где ты сейчас по состоянию, стрессу и навыкам, ещё до начала работы.',
@@ -279,14 +293,14 @@ const COPY = {
     testsLabelBtn: 'Пройти тесты и получить разбор',
     testsNote: 'Напиши мне, пришлю анкету и тесты. Заполнение занимает около 30 минут.',
     aboutLabel: 'Обо мне',
-    about1: 'Сертифицированный тренер по нейроинтеграции (программа Института нейроинтеграции с ICF-аккредитацией), учусь на коуча по стандартам ICF.',
-    about2: '10+ лет запускала проекты и выстраивала операционку в командах. Теперь помогаю выстраивать её в голове и в жизни. Работаю индивидуально и в группах.',
+    about1: 'Сертифицированный тренер по методу нейроинтеграции Катерины Ленгольд. Коуч по стандартам ICF — в процессе обучения на ICF-аккредитованной программе.',
+    about2: 'Мой личный опыт: 7+ лет в IT, выгорание и выход из него, эмиграция, диджитал-номадство, смены карьерного трека. Нейроинтеграция — то, что я сначала проверила на себе и на что опираюсь каждый день. Работаю индивидуально и в группах.',
     certTag: 'сертификат',
     faqLabel: 'Вопросы',
     faq: [
       { q: 'Это психотерапия?', a: 'Нет. Нейроинтеграция — тренерская работа с состоянием, мышлением и действиями. Если по тестам видно, что нужна помощь психолога или врача, я скажу об этом прямо.' },
       { q: 'Сколько стоит?', a: 'Формат и стоимость обсуждаем на велком-встрече, когда понятен запрос.' },
-      { q: 'Сколько времени нужно?', a: 'Минимальный цикл — 4 недели: 3 недели спринта и неделя интеграции. Между сессиями — небольшие практики и трекинг.' },
+      { q: 'Сколько времени нужно?', a: 'Один спринт — 4 недели: 3 недели работы и неделя интеграции. Его хватит, чтобы попробовать метод. Чтобы он стал частью жизни, нужно 8–12 недель, то есть 2–3 спринта. Между сессиями — небольшие практики и трекинг.' },
       { q: 'Как проходят встречи?', a: 'Онлайн, по видео. Часовой пояс не важен — я сама живу в разных.' },
       { q: 'Есть групповой формат?', a: 'Да, Нейроспринт: группа до 5 человек, 6 недель. Ближайший поток — напиши, расскажу.' },
     ],
@@ -314,8 +328,16 @@ const COPY = {
     forWhom: [
       { text: 'Burnout and chronic fatigue' },
       { text: 'Anxiety and trouble with self-regulation' },
-      { text: 'Feeling stuck, even after therapy' },
-      { text: 'Wanting change without new stress' },
+      { text: 'Feeling stuck: not sure where to go next or how' },
+      { text: 'Either doing nothing and worrying, or doing everything at once and then crashing' },
+      { text: 'Ideas and drive are there, but things keep getting postponed' },
+      { text: 'Setting goals and planning, then forgetting what they were a month later' },
+    ],
+    notForLabel: 'Not the right fit right now if',
+    notFor: [
+      { text: 'You are in an acute crisis and need a psychologist or a doctor, not a sprint' },
+      { text: 'You want results in a week without changing your usual rhythm' },
+      { text: 'You want someone to do it for you: I walk alongside, not instead' },
     ],
     methodLabel: 'The method',
     methodTitle: 'What neurointegration is',
@@ -336,7 +358,7 @@ const COPY = {
       { index: '06', text: 'Practices between sessions', sub: 'tracking sprint tasks' },
       { index: '07', text: 'Measuring change over time', sub: 'adjusting the request and the tracking system' },
     ],
-    minPeriodNote: 'The minimum period to put the method into practice is 4 weeks.',
+    minPeriodNote: 'To get to know the method and try it on yourself: from 4 weeks. For it to become part of your life, I recommend 8–12 weeks.',
     testsLabel: 'You can start with the tests',
     testsTitle: 'Neurointegration Institute tests with a review',
     testsIntro: 'If you want to look at yourself from the outside first: fill in a short questionnaire and the tests, and I review the results with you. It shows where you are with your state, stress and skills before we start.',
@@ -350,14 +372,14 @@ const COPY = {
     testsLabelBtn: 'Take the tests and get a review',
     testsNote: 'Message me and I will send the questionnaire and tests. Tests are in Russian; it takes about 30 minutes.',
     aboutLabel: 'About me',
-    about1: 'Certified neurointegration trainer (Neurointegration Institute program, ICF-accredited), currently training as an ICF-standard coach.',
-    about2: '10+ years launching projects and building operations in teams. Now I help people build them in their heads and lives. I work one-on-one and in groups.',
+    about1: 'Certified trainer in Katerina Lengold’s neurointegration method. Currently training as an ICF-standard coach on an ICF-accredited program.',
+    about2: 'My own experience: 7+ years in IT, burnout and recovery, emigration, digital nomad life, career changes. Neurointegration is something I tested on myself first and rely on every day. I work one-on-one and in groups.',
     certTag: 'certificate',
     faqLabel: 'Questions',
     faq: [
       { q: 'Is this therapy?', a: 'No. Neurointegration is trainer work with state, thinking and actions. If the tests show you need a psychologist or a doctor, I will tell you directly.' },
       { q: 'How much does it cost?', a: 'We discuss the format and price on the welcome call, once the request is clear.' },
-      { q: 'How much time does it take?', a: 'The minimum cycle is 4 weeks: a 3-week sprint and an integration week. Small practices and tracking in between sessions.' },
+      { q: 'How much time does it take?', a: 'One sprint is 4 weeks: 3 weeks of work and an integration week. That is enough to try the method. For it to become part of your life, plan 8–12 weeks, i.e. 2–3 sprints. Small practices and tracking in between sessions.' },
       { q: 'How are sessions held?', a: 'Online, by video. Time zones are not a problem.' },
       { q: 'Is there a group format?', a: 'Yes, Neurosprint: up to 5 people, 6 weeks, in Russian. Message me to hear about the next cohort.' },
     ],
