@@ -262,3 +262,6 @@
   .faq > div { margin-top: 4px; }
 
   .terms p + p { margin-top: -16px; }
+
+  .hdr-left { flex-shrink: 0; }
+  @media (max-width: 1100px) { .logo small { display: none; } .nav { gap: 14px; } .nav a.l { font-size: 14px; } }
