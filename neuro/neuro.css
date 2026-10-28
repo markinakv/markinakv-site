@@ -257,3 +257,6 @@
   .how-tab .more-t { margin-top: auto; padding-top: 6px; }
 
   #tests .lead { max-width: none; }
+
+  .faq summary { font-weight: 400; }
+  .faq > div { margin-top: 4px; }
