@@ -123,6 +123,12 @@
           <div class="n-card" style="line-height: 1.5;">{{ f.text }}</div>
         </sc-for>
       </div>
+      <p class="n-label" style="margin-top: 28px;">{{ fitLabel }}</p>
+      <div style="border-top: 1px solid #e0dacd;">
+        <sc-for list="{{ fit }}" as="y" hint-placeholder-count="2">
+          <div style="display: grid; grid-template-columns: 24px 1fr; gap: 8px; padding: 10px 0; border-bottom: 1px solid #e0dacd; line-height: 1.5; color: #4f4a42;"><span style="font-family: 'IBM Plex Mono', ui-monospace, monospace; color: #3f6b55;">✓</span><span>{{ y.text }}</span></div>
+        </sc-for>
+      </div>
       <p class="n-label" style="margin-top: 28px;">{{ notForLabel }}</p>
       <div style="border-top: 1px solid #e0dacd;">
         <sc-for list="{{ notFor }}" as="x" hint-placeholder-count="3">
@@ -194,6 +200,17 @@
     </section>
 
     <section class="n-sec">
+      <p class="n-label">{{ reviewsLabel }}</p>
+      <h2 class="n-h2">{{ reviewsTitle }}</h2>
+      <div class="n-grid2" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+        <sc-for list="{{ reviews }}" as="v" hint-placeholder-count="4">
+          <div class="n-card" style="line-height: 1.55;">«{{ v.text }}»</div>
+        </sc-for>
+      </div>
+      <p style="margin: 14px 0 0; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; color: #6b655a;">{{ reviewsNote }}</p>
+    </section>
+
+    <section class="n-sec">
       <p class="n-label">{{ faqLabel }}</p>
       <div style="border-top: 1px solid #e0dacd;">
         <sc-for list="{{ faq }}" as="q" hint-placeholder-count="5">
@@ -254,6 +271,20 @@ const COPY = {
       { text: 'Идеи и желание есть, но дела всё время откладываются на потом' },
       { text: 'Ставлю цели и планирую, но через месяц уже не помню, чего хотел(а)' },
     ],
+    fitLabel: 'Подойдёт, если',
+    fit: [
+      { text: 'Хочется системного подхода к тому, что делаешь по жизни' },
+      { text: 'Есть 2–3 области, которые хочется развивать' },
+    ],
+    reviewsLabel: 'Отзывы',
+    reviewsTitle: 'Что говорят клиенты',
+    reviews: [
+      { text: 'Очень хочется поделиться — я прошла уже три спринта, без срывов.' },
+      { text: 'Главное — ощущение опоры: взаимодействие стабильное, и от этого спокойнее самой.' },
+      { text: 'Получилось увидеть и назвать то, что я сама себе объяснить не могла.' },
+      { text: 'В работе можно быть честной и говорить о том, что не сделала, — без страха осуждения и укора. И находить решения, которые помогают двигаться дальше.' },
+    ],
+    reviewsNote: 'клиенты индивидуального сопровождения',
     notForLabel: 'Не подойдёт сейчас, если',
     notFor: [
       { text: 'Острый кризис и нужна поддержка психолога или врача, а не спринт' },
@@ -291,14 +322,15 @@ const COPY = {
       { name: 'PHQ-8 и GAD-7', what: 'скрининг настроения и тревожности' },
     ],
     testsLabelBtn: 'Пройти тесты и получить разбор',
-    testsNote: 'Напиши мне, пришлю анкету и тесты. Заполнение занимает около 30 минут.',
+    testsNote: 'Напиши мне, пришлю анкету и тесты. Анкета и тесты занимают около 25 минут.',
     aboutLabel: 'Обо мне',
-    about1: 'Сертифицированный тренер по методу нейроинтеграции Катерины Ленгольд. Коуч по стандартам ICF — в процессе обучения на ICF-аккредитованной программе.',
+    about1: 'Сертифицированный тренер по методу нейроинтеграции Катерины Ленгольд. Учусь коучингу на ICF-аккредитованной программе. До этого — операционный менеджмент в B2B SaaS, adtech, образовании и благотворительности.',
     about2: 'Мой личный опыт: 7+ лет в IT, выгорание и выход из него, эмиграция, диджитал-номадство, смены карьерного трека. Нейроинтеграция — то, что я сначала проверила на себе и на что опираюсь каждый день. Работаю индивидуально и в группах.',
     certTag: 'сертификат',
     faqLabel: 'Вопросы',
     faq: [
       { q: 'Это психотерапия?', a: 'Нет. Нейроинтеграция — тренерская работа с состоянием, мышлением и действиями. Если по тестам видно, что нужна помощь психолога или врача, я скажу об этом прямо.' },
+      { q: 'Зачем анкета и тесты?', a: 'Чтобы куда-то двигаться, нужно понимать точку А и свой запрос. Анкета и тесты помогают сделать это быстро и качественно. Результаты разбираем на первой сессии.' },
       { q: 'Сколько стоит?', a: 'Формат и стоимость обсуждаем на велком-встрече, когда понятен запрос.' },
       { q: 'Сколько времени нужно?', a: 'Один спринт — 4 недели: 3 недели работы и неделя интеграции. Его хватит, чтобы попробовать метод. Чтобы он стал частью жизни, нужно 8–12 недель, то есть 2–3 спринта. Между сессиями — небольшие практики и трекинг.' },
       { q: 'Как проходят встречи?', a: 'Онлайн, по видео. Часовой пояс не важен — я сама живу в разных.' },
@@ -333,6 +365,20 @@ const COPY = {
       { text: 'Ideas and drive are there, but things keep getting postponed' },
       { text: 'Setting goals and planning, then forgetting what they were a month later' },
     ],
+    fitLabel: 'A good fit if',
+    fit: [
+      { text: 'You want a systematic approach to what you do in life' },
+      { text: 'There are 2–3 areas you want to develop' },
+    ],
+    reviewsLabel: 'Reviews',
+    reviewsTitle: 'What clients say',
+    reviews: [
+      { text: 'I really want to share this: I have done three sprints already, without falling off.' },
+      { text: 'The main thing is a sense of support: the work is steady, and that makes me calmer too.' },
+      { text: 'I managed to see and name something I could not explain to myself.' },
+      { text: 'I can be honest about what I did not do, without fear of judgement, and find solutions that help me move on.' },
+    ],
+    reviewsNote: 'one-on-one clients, translated from Russian',
     notForLabel: 'Not the right fit right now if',
     notFor: [
       { text: 'You are in an acute crisis and need a psychologist or a doctor, not a sprint' },
@@ -370,14 +416,15 @@ const COPY = {
       { name: 'PHQ-8 and GAD-7', what: 'mood and anxiety screening' },
     ],
     testsLabelBtn: 'Take the tests and get a review',
-    testsNote: 'Message me and I will send the questionnaire and tests. Tests are in Russian; it takes about 30 minutes.',
+    testsNote: 'Message me and I will send the questionnaire and tests. Tests are in Russian; it takes about 25 minutes.',
     aboutLabel: 'About me',
-    about1: 'Certified trainer in Katerina Lengold’s neurointegration method. Currently training as an ICF-standard coach on an ICF-accredited program.',
+    about1: 'Certified trainer in Katerina Lengold’s neurointegration method. Studying coaching on an ICF-accredited program. Before that: operations management in B2B SaaS, adtech, education and non-profit.',
     about2: 'My own experience: 7+ years in IT, burnout and recovery, emigration, digital nomad life, career changes. Neurointegration is something I tested on myself first and rely on every day. I work one-on-one and in groups.',
     certTag: 'certificate',
     faqLabel: 'Questions',
     faq: [
       { q: 'Is this therapy?', a: 'No. Neurointegration is trainer work with state, thinking and actions. If the tests show you need a psychologist or a doctor, I will tell you directly.' },
+      { q: 'Why the questionnaire and tests?', a: 'To move somewhere, you need to know your starting point and your request. The questionnaire and tests help get there quickly. We review the results in the first session.' },
       { q: 'How much does it cost?', a: 'We discuss the format and price on the welcome call, once the request is clear.' },
       { q: 'How much time does it take?', a: 'One sprint is 4 weeks: 3 weeks of work and an integration week. That is enough to try the method. For it to become part of your life, plan 8–12 weeks, i.e. 2–3 sprints. Small practices and tracking in between sessions.' },
       { q: 'How are sessions held?', a: 'Online, by video. Time zones are not a problem.' },
