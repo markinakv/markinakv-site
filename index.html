@@ -74,7 +74,7 @@
     .d-row-sm { padding: 10px 0; }
     .d-tag { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; color: #6b655a; white-space: nowrap; }
     .d-desc { color: #4f4a42; }
-    .d-nav { text-decoration: none; color: #4f4a42; padding: 10px 0; }
+    .d-nav { display: none; text-decoration: none; color: #4f4a42; padding: 10px 0; }
     .d-nav:hover { color: #3f6b55; }
     html { scroll-behavior: smooth; }
     .d-card { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px 18px; margin-bottom: 10px; background: #fbf9f4; border: 1px solid #e0dacd; border-radius: 12px; color: #26241f; text-decoration: none; line-height: 1.45; transition: border-color .15s, background .15s; }
@@ -83,6 +83,7 @@
     .d-side { max-width: 320px; }
     .d-grid { grid-template-columns: 280px 1fr; gap: 40px 40px; }
     @media (max-width: 720px) {
+      .d-nav { display: inline; }
       .d-grid { grid-template-columns: 1fr; }
       .d-side { max-width: none; }
       .d-photo { max-width: 240px; }
