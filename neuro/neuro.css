@@ -255,3 +255,5 @@
   .how-tabs { align-items: stretch; }
   .how-tab { height: 100%; }
   .how-tab .more-t { margin-top: auto; padding-top: 6px; }
+
+  #tests .lead { max-width: none; }
