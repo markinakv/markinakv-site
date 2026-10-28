@@ -210,9 +210,9 @@ posthog.init('phc_pzVXHwrtXHBxQvSZMLTv8RKynT4oJGRTofb6DLixLo7C',{api_host:'https
   <script>
     (function () {
       var d = document.getElementById('tests-fold');
-      function openIf() { if (location.hash === '#tests') d.open = true; }
+      function openIf() { if (location.hash === '#tests') { d.open = true; setTimeout(function () { d.scrollIntoView({ block: 'start' }); }, 30); } }
       openIf(); window.addEventListener('hashchange', openIf);
-      document.querySelectorAll('a[href="#tests"]').forEach(function (a) { a.addEventListener('click', function () { d.open = true; }); });
+      document.querySelectorAll('a[href="#tests"]').forEach(function (a) { a.addEventListener('click', function (e) { e.preventDefault(); d.open = true; setTimeout(function () { d.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 30); history.replaceState(null, '', '#tests'); }); });
     })();
   </script>
 
