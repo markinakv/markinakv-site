@@ -41,15 +41,15 @@
     },
     {
       "source": "/ru/neuro",
-      "destination": "/neuro/index.html"
+      "destination": "/ru/neuro/index.html"
     },
     {
       "source": "/ru/ops",
-      "destination": "/ops/index.html"
+      "destination": "/ru/ops/index.html"
     },
     {
       "source": "/ru/cv",
-      "destination": "/cv/index.html"
+      "destination": "/ru/cv/index.html"
     },
     {
       "source": "/ru/:match*",

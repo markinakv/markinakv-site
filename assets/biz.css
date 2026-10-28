@@ -72,3 +72,7 @@ details.more ul { margin-top: 8px; }
 .cv-head { grid-template-columns: 140px 1fr; gap: 28px; align-items: center; }
 .cv-head img { width: 140px; height: 140px; }
 @media (max-width: 720px) { .cv-head { grid-template-columns: 1fr; } .cv-head img { width: 112px; height: 112px; } }
+
+.lang { font-family: var(--mono); font-size: 12px; border: 1px solid var(--line); border-radius: 999px; padding: 5px 10px; color: var(--ink2); white-space: nowrap; }
+.lang:hover { color: var(--green); border-color: var(--green); text-decoration: none; }
+@media print { .lang { display: none; } }
