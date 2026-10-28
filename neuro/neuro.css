@@ -221,3 +221,8 @@
   .author img { object-position: 50% 30%; }
   .author-mini img { object-position: 50% 30%; }
   .hero-photo img { object-position: 50% 30%; }
+
+  .how-tab .t { align-items: center; }
+  .how-tab .t .arr { flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--line); display: inline-flex; align-items: center; justify-content: center; font-size: 14px; color: var(--ink2); background: var(--bg); transition: transform .18s, background .15s, color .15s, border-color .15s; }
+  .how-tab:hover .t .arr { border-color: var(--green); color: var(--green); }
+  .how-tab[aria-expanded="true"] .t .arr { background: var(--green); border-color: var(--green); color: #fff; transform: rotate(90deg); }
