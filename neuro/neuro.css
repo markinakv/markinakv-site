@@ -201,3 +201,7 @@
     .fmts, .tests { grid-template-columns: 1fr; }
     .pains .pain:last-child:nth-child(odd) { grid-column: auto; }
   }
+
+  .hdr .wrap { max-width: 1140px; }
+  .nav { gap: 18px; }
+  .nav a.l, .btn.sm, .logo { white-space: nowrap; }
