@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>Нейроинтеграция — Катерина Маркина</title>
+<meta name="description" content="Индивидуальная работа по методу нейроинтеграции: устойчивые изменения без выгорания. Велком-встреча бесплатно.">
+<script>
+  !(function (t, e) {
+    var o, n, p, r;
+    e.__SV ||
+      ((window.posthog = e),
+      (e._i = []),
+      (e.init = function (i, s, a) {
+        function g(t, e) {
+          var o = e.split(".");
+          (2 == o.length && ((t = t[o[0]]), (e = o[1])),
+            (t[e] = function () {
+              t.push([e].concat(Array.prototype.slice.call(arguments, 0)));
+            }));
+        }
+        (((p = t.createElement("script")).type = "text/javascript"),
+          (p.crossOrigin = "anonymous"),
+          (p.async = !0),
+          (p.src = s.api_host.replace(".i.posthog.com", "-assets.i.posthog.com") + "/static/array.js"),
+          (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(p, r));
+        var u = e;
+        for (
+          void 0 !== a ? (u = e[a] = []) : (a = "posthog"),
+            u.people = u.people || [],
+            u.toString = function (t) {
+              var e = "posthog";
+              return ("posthog" !== a && (e += "." + a), t || (e += " (stub)"), e);
+            },
+            u.people.toString = function () {
+              return u.toString(1) + ".people (stub)";
+            },
+            o = "init capture register register_once unregister identify reset get_distinct_id opt_in_capturing opt_out_capturing".split(" "),
+            n = 0;
+          n < o.length;
+          n++
+        )
+          g(u, o[n]);
+        e._i.push([i, s, a]);
+      }),
+      (e.__SV = 1));
+  })(document, window.posthog || []);
+  posthog.init("phc_pzVXHwrtXHBxQvSZMLTv8RKynT4oJGRTofb6DLixLo7C", {
+    api_host: "https://eu.i.posthog.com",
+    capture_pageview: true,
+    autocapture: true,
+  });
+</script>
+<script src="/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta name="design_doc_mode" content="page">
+  <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: #f6f3ec; }
+    a { color: #26241f; }
+    a:hover { color: #3f6b55; }
+    .n-wrap { width: 100%; max-width: 760px; margin: 0 auto; padding: 0 24px; }
+    .n-label { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: #6b655a; margin: 0 0 14px; }
+    .n-h2 { font-size: 26px; font-weight: 600; letter-spacing: -.01em; line-height: 1.25; margin: 0 0 20px; }
+    .n-p { font-size: 16px; line-height: 1.6; color: #3a362f; margin: 0; }
+    .n-sec { padding: 48px 0; border-top: 1px solid #e0dacd; }
+    .n-card { background: #fbf9f4; border: 1px solid #e0dacd; border-radius: 12px; padding: 18px 20px; }
+    .n-card-title { font-weight: 600; margin-bottom: 6px; }
+    .n-grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; }
+    .n-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 24px; border-radius: 999px; background: #26241f; color: #f6f3ec; text-decoration: none; font-size: 15px; font-weight: 600; }
+    .n-btn:hover { background: #3f6b55; color: #f6f3ec; }
+    .n-btn2 { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 24px; border-radius: 999px; border: 1px solid #26241f; color: #26241f; text-decoration: none; font-size: 15px; font-weight: 600; }
+    .n-btn2:hover { border-color: #3f6b55; color: #3f6b55; }
+    .n-step { display: grid; grid-template-columns: 44px 1fr; gap: 12px; padding: 14px 0; border-bottom: 1px solid #e0dacd; }
+    .n-num { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 13px; color: #3f6b55; padding-top: 2px; }
+    .n-sub { color: #6b655a; font-size: 14px; margin-top: 2px; }
+    .n-faq { border-bottom: 1px solid #e0dacd; padding: 16px 0; }
+    .n-faq summary { cursor: pointer; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+    .n-faq summary::-webkit-details-marker { display: none; }
+    .n-faq summary::after { content: '+'; font-family: 'IBM Plex Mono', ui-monospace, monospace; color: #6b655a; }
+    .n-faq[open] summary::after { content: '−'; }
+    .n-faq p { margin: 10px 0 0; line-height: 1.6; color: #3a362f; }
+    .n-row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 12px 0; border-bottom: 1px solid #e0dacd; text-decoration: none; color: #26241f; }
+    .n-row:hover .n-name { color: #3f6b55; }
+    .n-tag { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; color: #6b655a; white-space: nowrap; }
+    .n-about { display: grid; grid-template-columns: 180px 1fr; gap: 28px; align-items: start; }
+    @media (max-width: 640px) {
+      .n-about { grid-template-columns: 1fr; }
+      .n-photo { max-width: 200px; }
+    }
+  </style>
+</helmet>
+<div style="background: #f6f3ec; color: #26241f; font-family: 'Golos Text', system-ui, sans-serif; min-height: 100vh;">
+
+  <div class="n-wrap">
+    <header style="display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 24px 0 14px; border-bottom: 1px solid #e0dacd; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: .04em;">
+      <a href="{{ homeHref }}" style="text-decoration: none; color: #26241f; padding: 10px 0;">{{ backLabel }}</a>
+      <a href="{{ langSwitchHref }}" style="border: 1px solid #c9c1b0; border-radius: 999px; padding: 6px 12px; text-decoration: none;">{{ langSwitchLabel }}</a>
+    </header>
+
+    <section style="padding: 48px 0 48px;">
+      <p class="n-label">{{ heroLabel }}</p>
+      <h1 style="margin: 0 0 16px; font-size: clamp(30px, 5vw, 42px); line-height: 1.12; font-weight: 600; letter-spacing: -.02em;">{{ heroTitle }}</h1>
+      <p class="n-p" style="font-size: 18px; max-width: 600px; margin-bottom: 28px;">{{ heroSubtitle }}</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+        <a class="n-btn" href="{{ callHref }}" target="_blank" rel="noopener">{{ callLabel }}</a>
+        <a class="n-btn2" href="#tests">{{ testsShortLabel }}</a>
+      </div>
+      <p style="margin: 14px 0 0; font-size: 13px; color: #6b655a;">{{ callNote }}</p>
+    </section>
+
+    <section class="n-sec">
+      <p class="n-label">{{ forWhomLabel }}</p>
+      <h2 class="n-h2">{{ forWhomTitle }}</h2>
+      <div class="n-grid2">
+        <sc-for list="{{ forWhom }}" as="f" hint-placeholder-count="4">
+          <div class="n-card" style="line-height: 1.5;">{{ f.text }}</div>
+        </sc-for>
+      </div>
+    </section>
+
+    <section class="n-sec">
+      <p class="n-label">{{ methodLabel }}</p>
+      <h2 class="n-h2">{{ methodTitle }}</h2>
+      <p class="n-p" style="margin-bottom: 20px;">{{ methodIntro }}</p>
+      <div class="n-grid2">
+        <sc-for list="{{ methodItems }}" as="m" hint-placeholder-count="3">
+          <div class="n-card">
+            <div class="n-card-title">{{ m.title }}</div>
+            <div style="font-size: 15px; line-height: 1.55; color: #4f4a42;">{{ m.text }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <section class="n-sec">
+      <p class="n-label">{{ stepsLabel }}</p>
+      <h2 class="n-h2">{{ stepsTitle }}</h2>
+      <div style="border-top: 1px solid #e0dacd;">
+        <sc-for list="{{ steps }}" as="s" hint-placeholder-count="7">
+          <div class="n-step">
+            <span class="n-num">{{ s.index }}</span>
+            <div>
+              <div style="line-height: 1.5;">{{ s.text }}</div>
+              <div class="n-sub">{{ s.sub }}</div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      <p style="margin: 16px 0 0; font-size: 14px; color: #6b655a;">{{ minPeriodNote }}</p>
+    </section>
+
+    <section id="tests" class="n-sec">
+      <p class="n-label">{{ testsLabel }}</p>
+      <h2 class="n-h2">{{ testsTitle }}</h2>
+      <p class="n-p" style="margin-bottom: 20px;">{{ testsIntro }}</p>
+      <div class="n-card" style="margin-bottom: 24px;">
+        <sc-for list="{{ testsList }}" as="t" hint-placeholder-count="5">
+          <div style="display: flex; justify-content: space-between; gap: 16px; padding: 8px 0; border-bottom: 1px solid #ebe6da;">
+            <span style="font-weight: 600;">{{ t.name }}</span>
+            <span style="font-size: 14px; color: #6b655a; text-align: right;">{{ t.what }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <a class="n-btn2" href="{{ testsHref }}" target="_blank" rel="noopener">{{ testsLabelBtn }}</a>
+      <p style="margin: 14px 0 0; font-size: 13px; color: #6b655a;">{{ testsNote }}</p>
+    </section>
+
+    <section class="n-sec">
+      <p class="n-label">{{ aboutLabel }}</p>
+      <div class="n-about">
+        <div class="n-photo" style="width: 100%; aspect-ratio: 3 / 4; overflow: hidden; border-radius: 12px;"><img src="/uploads/portrait.jpg" alt="{{ name }}" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 70%; transform: scale(1.4); transform-origin: 41% 58%; display: block;"></div>
+        <div>
+          <h2 class="n-h2" style="margin-bottom: 12px;">{{ name }}</h2>
+          <p class="n-p" style="margin-bottom: 12px;">{{ about1 }}</p>
+          <p class="n-p" style="margin-bottom: 20px;">{{ about2 }}</p>
+          <sc-for list="{{ certificates }}" as="c" hint-placeholder-count="2">
+            <a class="n-row" href="{{ c.href }}" target="_blank" rel="noopener"><span class="n-name">{{ c.label }}</span><span class="n-tag">{{ certTag }}</span></a>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <section class="n-sec">
+      <p class="n-label">{{ faqLabel }}</p>
+      <div style="border-top: 1px solid #e0dacd;">
+        <sc-for list="{{ faq }}" as="q" hint-placeholder-count="5">
+          <details class="n-faq">
+            <summary>{{ q.q }}</summary>
+            <p>{{ q.a }}</p>
+          </details>
+        </sc-for>
+      </div>
+    </section>
+
+    <section class="n-sec" style="padding-bottom: 32px;">
+      <h2 class="n-h2">{{ finalTitle }}</h2>
+      <p class="n-p" style="margin-bottom: 24px;">{{ finalText }}</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 32px;">
+        <a class="n-btn" href="{{ callHref }}" target="_blank" rel="noopener">{{ callLabel }}</a>
+        <a class="n-btn2" href="{{ testsHref }}" target="_blank" rel="noopener">{{ testsLabelBtn }}</a>
+      </div>
+      <sc-for list="{{ contacts }}" as="c" hint-placeholder-count="3">
+        <a class="n-row" href="{{ c.href }}" target="_blank" rel="noopener"><span class="n-name">{{ c.label }}</span><span class="n-tag">{{ c.tag }}</span></a>
+      </sc-for>
+    </section>
+
+    <footer style="padding: 16px 0 40px; border-top: 1px solid #e0dacd; display: flex; justify-content: space-between; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; color: #6b655a;">
+      <a href="{{ homeHref }}" style="text-decoration: none; color: #6b655a;">markinakv.com</a>
+      <span>{{ footerNote }}</span>
+    </footer>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const CALL_HREF = 'https://calendar.google.com/calendar/u/0/appointments/AcZssZ1eXN0eT5X2Lkn4IUAnbwqpBxPEXvh4lYYw6tk=';
+const TESTS_HREF = 'https://t.me/markinakv';
+const CERTS = [
+  { label: 'Neurointegration Fundamentals Certificate', href: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/NI%20Certificate%20from%20Katya-X9NdSKLLqjfR0sd3LfkOlY8hTqMTAQ.png' },
+  { label: 'Neurointegration Practical Module Certificate', href: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/NI%20pratcical%20module-iqiQXEif8yZYJxkJi7NFtFLYQWj2lq.png' },
+];
+
+const COPY = {
+  ru: {
+    langSwitchLabel: 'EN',
+    backLabel: '← markinakv',
+    name: 'Катерина Маркина',
+    heroLabel: 'Нейроинтеграция · индивидуально',
+    heroTitle: 'Устойчивые изменения без выгорания',
+    heroSubtitle: 'Работаю по методу нейроинтеграции: через состояние, мышление и действия, а не через силу воли. Короткие спринты, понятная система и поддержка на каждом шаге.',
+    callLabel: 'Записаться на велком-встречу',
+    callNote: 'Бесплатно, онлайн. Знакомимся, обсуждаем запрос и решаем, подходит ли формат.',
+    testsShortLabel: 'Начать с тестов',
+    forWhomLabel: 'Кому подходит',
+    forWhomTitle: 'С чем приходят',
+    forWhom: [
+      { text: 'Выгорание и хроническая усталость' },
+      { text: 'Тревожность и сложности с саморегуляцией' },
+      { text: 'Ощущение «застревания», даже после терапии' },
+      { text: 'Хочется перемен, но без нового стресса' },
+    ],
+    methodLabel: 'О методе',
+    methodTitle: 'Что такое нейроинтеграция',
+    methodIntro: 'Нейроинтеграция смотрит на изменения через три вещи: в каком ты состоянии, как думаешь и что реально делаешь. Метод основан на нейронауке и спринтовом подходе.',
+    methodItems: [
+      { title: 'Состояние', text: 'Учимся не срываться в перегруз или апатию и держаться в спокойном, рабочем состоянии, даже когда вокруг стресс.' },
+      { title: 'Мышление', text: 'Разбираемся, почему буксуем и сами себе мешаем, и учимся выходить из привычных петель.' },
+      { title: 'Действия', text: 'Вместо больших планов на годы вперёд работаем спринтами по 3 недели: понемногу, но регулярно и без надрыва.' },
+    ],
+    stepsLabel: 'Как проходит работа',
+    stepsTitle: 'По шагам',
+    steps: [
+      { index: '01', text: 'Велком-встреча', sub: 'знакомство и запрос' },
+      { index: '02', text: 'Стартовое тестирование', sub: 'тесты Института нейроинтеграции' },
+      { index: '03', text: 'Планирование спринта', sub: 'с учётом запроса и результатов тестов' },
+      { index: '04', text: 'Система трекинга под тебя и старт спринта', sub: '' },
+      { index: '05', text: 'Индивидуальные сессии', sub: 'работа на уровне состояния, мышления и действий' },
+      { index: '06', text: 'Практики между встречами', sub: 'трекинг по задачам спринта' },
+      { index: '07', text: 'Замер изменений в динамике', sub: 'корректируем запрос и систему трекинга' },
+    ],
+    minPeriodNote: 'Минимальный срок совместной работы, чтобы внедрить метод, — 4 недели.',
+    testsLabel: 'Можно начать с тестов',
+    testsTitle: 'Тесты Института нейроинтеграции с разбором',
+    testsIntro: 'Если хочется сначала посмотреть на себя со стороны: проходишь анкету и тесты, а я делаю разбор результатов. Это помогает увидеть, где ты сейчас по состоянию, стрессу и навыкам, ещё до начала работы.',
+    testsList: [
+      { name: 'НейроБаланс', what: 'сколько времени ты в ресурсе, дистрессе или выгорании' },
+      { name: 'НейроОрбиты', what: 'привычные сценарии поведения' },
+      { name: 'Индекс продуктивности', what: 'структура, фокус, рефлексия' },
+      { name: 'Стресс-факторы', what: 'нагрузка от событий за последний год' },
+      { name: 'PHQ-8 и GAD-7', what: 'скрининг настроения и тревожности' },
+    ],
+    testsLabelBtn: 'Пройти тесты и получить разбор',
+    testsNote: 'Напиши мне, пришлю анкету и тесты. Заполнение занимает около 30 минут.',
+    aboutLabel: 'Обо мне',
+    about1: 'Сертифицированный тренер по нейроинтеграции (программа Института нейроинтеграции с ICF-аккредитацией), учусь на коуча по стандартам ICF.',
+    about2: '10+ лет запускала проекты и выстраивала операционку в командах. Теперь помогаю выстраивать её в голове и в жизни. Работаю индивидуально и в группах.',
+    certTag: 'сертификат',
+    faqLabel: 'Вопросы',
+    faq: [
+      { q: 'Это психотерапия?', a: 'Нет. Нейроинтеграция — тренерская работа с состоянием, мышлением и действиями. Если по тестам видно, что нужна помощь психолога или врача, я скажу об этом прямо.' },
+      { q: 'Сколько стоит?', a: 'Формат и стоимость обсуждаем на велком-встрече, когда понятен запрос.' },
+      { q: 'Сколько времени нужно?', a: 'Минимальный цикл — 4 недели: 3 недели спринта и неделя интеграции. Между сессиями — небольшие практики и трекинг.' },
+      { q: 'Как проходят встречи?', a: 'Онлайн, по видео. Часовой пояс не важен — я сама живу в разных.' },
+      { q: 'Есть групповой формат?', a: 'Да, Нейроспринт: группа до 5 человек, 6 недель. Ближайший поток — напиши, расскажу.' },
+    ],
+    finalTitle: 'Начнём со знакомства',
+    finalText: 'Велком-встреча ни к чему не обязывает. Если удобнее сначала написать — пиши в Telegram.',
+    contacts: [
+      { label: '@markinakv', tag: 'telegram', href: 'https://t.me/markinakv' },
+      { label: 'ni@markinakv.com', tag: 'почта', href: 'mailto:ni@markinakv.com' },
+      { label: 'Mind-hearted — канал про нейроинтеграцию', tag: 'telegram', href: 'https://t.me/mindhearted' },
+    ],
+    footerNote: 'нейроинтеграция',
+  },
+  en: {
+    langSwitchLabel: 'RU',
+    backLabel: '← markinakv',
+    name: 'Katerina Markina',
+    heroLabel: 'Neurointegration · one-on-one',
+    heroTitle: 'Lasting change without burnout',
+    heroSubtitle: 'I work with the neurointegration method: through your state, thinking and actions rather than willpower. Short sprints, a clear system and support at every step.',
+    callLabel: 'Book a welcome call',
+    callNote: 'Free, online. We get to know each other, talk about your request and see if the format fits.',
+    testsShortLabel: 'Start with the tests',
+    forWhomLabel: 'Who it is for',
+    forWhomTitle: 'What people come with',
+    forWhom: [
+      { text: 'Burnout and chronic fatigue' },
+      { text: 'Anxiety and trouble with self-regulation' },
+      { text: 'Feeling stuck, even after therapy' },
+      { text: 'Wanting change without new stress' },
+    ],
+    methodLabel: 'The method',
+    methodTitle: 'What neurointegration is',
+    methodIntro: 'Neurointegration looks at change through three things: your state, how you think and what you actually do. It is grounded in neuroscience and a sprint approach.',
+    methodItems: [
+      { title: 'State', text: 'Learning not to slip into overload or apathy, and to stay calm and functional even under stress.' },
+      { title: 'Thinking', text: 'Understanding why we stall and get in our own way, and learning to step out of familiar loops.' },
+      { title: 'Actions', text: 'Instead of big multi-year plans, we work in 3-week sprints: small steps, done regularly and without strain.' },
+    ],
+    stepsLabel: 'How it works',
+    stepsTitle: 'Step by step',
+    steps: [
+      { index: '01', text: 'Welcome call', sub: 'getting to know each other and your request' },
+      { index: '02', text: 'Initial testing', sub: 'Neurointegration Institute tests' },
+      { index: '03', text: 'Sprint planning', sub: 'based on your request and test results' },
+      { index: '04', text: 'A tracking system that fits you, sprint start', sub: '' },
+      { index: '05', text: 'One-on-one sessions', sub: 'working with state, thinking and actions' },
+      { index: '06', text: 'Practices between sessions', sub: 'tracking sprint tasks' },
+      { index: '07', text: 'Measuring change over time', sub: 'adjusting the request and the tracking system' },
+    ],
+    minPeriodNote: 'The minimum period to put the method into practice is 4 weeks.',
+    testsLabel: 'You can start with the tests',
+    testsTitle: 'Neurointegration Institute tests with a review',
+    testsIntro: 'If you want to look at yourself from the outside first: fill in a short questionnaire and the tests, and I review the results with you. It shows where you are with your state, stress and skills before we start.',
+    testsList: [
+      { name: 'NeuroBalance', what: 'time spent in resource, distress or burnout' },
+      { name: 'NeuroOrbits', what: 'habitual behaviour patterns' },
+      { name: 'Productivity index', what: 'structure, focus, reflection' },
+      { name: 'Stress factors', what: 'load from life events over the last year' },
+      { name: 'PHQ-8 and GAD-7', what: 'mood and anxiety screening' },
+    ],
+    testsLabelBtn: 'Take the tests and get a review',
+    testsNote: 'Message me and I will send the questionnaire and tests. Tests are in Russian; it takes about 30 minutes.',
+    aboutLabel: 'About me',
+    about1: 'Certified neurointegration trainer (Neurointegration Institute program, ICF-accredited), currently training as an ICF-standard coach.',
+    about2: '10+ years launching projects and building operations in teams. Now I help people build them in their heads and lives. I work one-on-one and in groups.',
+    certTag: 'certificate',
+    faqLabel: 'Questions',
+    faq: [
+      { q: 'Is this therapy?', a: 'No. Neurointegration is trainer work with state, thinking and actions. If the tests show you need a psychologist or a doctor, I will tell you directly.' },
+      { q: 'How much does it cost?', a: 'We discuss the format and price on the welcome call, once the request is clear.' },
+      { q: 'How much time does it take?', a: 'The minimum cycle is 4 weeks: a 3-week sprint and an integration week. Small practices and tracking in between sessions.' },
+      { q: 'How are sessions held?', a: 'Online, by video. Time zones are not a problem.' },
+      { q: 'Is there a group format?', a: 'Yes, Neurosprint: up to 5 people, 6 weeks, in Russian. Message me to hear about the next cohort.' },
+    ],
+    finalTitle: 'Let us start with a call',
+    finalText: 'The welcome call comes with no obligation. If you prefer to write first, message me on Telegram.',
+    contacts: [
+      { label: '@markinakv', tag: 'telegram', href: 'https://t.me/markinakv' },
+      { label: 'ni@markinakv.com', tag: 'email', href: 'mailto:ni@markinakv.com' },
+      { label: 'Mind-hearted — channel on neurointegration', tag: 'telegram · ru', href: 'https://t.me/mindhearted' },
+    ],
+    footerNote: 'neurointegration',
+  },
+};
+
+function isRuPath() {
+  const p = window.location.pathname;
+  return p === '/ru' || p.startsWith('/ru/');
+}
+function langHref(toRu) {
+  const p = window.location.pathname;
+  if (toRu) {
+    if (isRuPath()) return p;
+    return '/ru' + p;
+  }
+  if (p === '/ru') return '/';
+  if (p.startsWith('/ru/')) return p.slice(3);
+  return p;
+}
+
+class Component extends DCLogic {
+  state = { lang: isRuPath() ? 'ru' : 'en' };
+
+  renderVals() {
+    const ru = this.state.lang === 'ru';
+    const t = COPY[this.state.lang];
+    return {
+      ...t,
+      callHref: CALL_HREF,
+      testsHref: TESTS_HREF,
+      certificates: CERTS,
+      homeHref: ru ? '/ru/' : '/',
+      langSwitchHref: langHref(!ru),
+    };
+  }
+}
+</script>
+</body>
+</html>
