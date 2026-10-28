@@ -131,7 +131,7 @@
       <div id="projects">
         <p class="d-label">{{ projectsHeading }}</p>
         <sc-for list="{{ projects }}" as="p" hint-placeholder-count="4">
-          <a class="d-card" href="{{ p.href }}"><span><span class="d-name" style="font-weight: 600;">{{ p.name }}</span><span class="d-desc"> — {{ p.desc }}</span></span><span class="d-tag">{{ p.tag }}</span></a>
+          <a class="d-card" href="{{ p.href }}"><span><span class="d-name" style="font-weight: 600;">{{ p.name }}</span><span class="d-desc"> — {{ p.desc }}</span></span><span class="d-tag">{{ p.tag }}</span></a>
         </sc-for>
       </div>
 
@@ -154,13 +154,13 @@
 const COPY = {
   ru: {
     langSwitchLabel: 'EN',
-    backToTopLabel: 'в начало',
+    backToTopLabel: 'в\u00a0начало',
     heroName: 'Катерина Маркина',
     roles: 'Операционный менеджер · продюсер · коуч · тренер по\u00a0нейроинтеграции',
     nomadLabel: 'Диджитал-номад',
     nowLabel: 'Сейчас',
     about1: '10+ лет запускаю проекты с\u00a0нуля: образовательные программы, фестивали, события, digital-продукты, благотворительные проекты. Последние годы выстраивала операционку в\u00a0стартапах.',
-    about2: 'Сейчас веду частную практику по\u00a0нейроинтеграции, помогаю людям настроить AI под свою жизнь и\u00a0продюсирую запуски для команд.',
+    about2: 'Сейчас веду частную практику по\u00a0нейроинтеграции, помогаю людям настроить AI под\u00a0свою жизнь и\u00a0продюсирую запуски для\u00a0команд.',
     contactHeading: 'Связаться',
     navProjects: 'Проекты',
     navSocial: 'Соц. сети',
@@ -173,16 +173,16 @@ const COPY = {
     projectsHeading: 'Проекты',
     projects: [
       { name: 'Нейроинтеграция', desc: 'частная практика и\u00a0группы', tag: '→', href: './neuro/' },
-      { name: 'AI для личной операционки', desc: 'консультации', tag: '→', href: 'https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0ziq2BtOeETOBhn9yqweKec5wgjMnbn0gOMdk_1aWUVlKnu8DvOkqUf-hMJe1LxM8pFz0zdx76' },
-      { name: 'Продюсирование и\u00a0операционка', desc: 'запуски и\u00a0fractional operations для команд, парт-тайм', tag: '→', href: './ops/' },
+      { name: 'AI для\u00a0личной операционки', desc: 'консультации', tag: '→', href: 'https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0ziq2BtOeETOBhn9yqweKec5wgjMnbn0gOMdk_1aWUVlKnu8DvOkqUf-hMJe1LxM8pFz0zdx76' },
+      { name: 'Продюсирование и\u00a0операционка', desc: 'запуски и\u00a0fractional operations для\u00a0команд, парт-тайм', tag: '→', href: './ops/' },
       { name: 'Благотворительность', desc: 'международный фонд помощи детям, школы в\u00a0Кении и\u00a0Бурунди', tag: '→', href: './charity.html' },
     ],
     writingHeading: 'Соц. сети',
     socials: [
       { label: 'katerina-markina', tag: 'linkedin', href: 'https://www.linkedin.com/in/katerina-markina/' },
       { label: 'markinakv', tag: 'instagram', href: 'https://www.instagram.com/markinakv' },
-      { label: 'Mind-hearted — про нейроинтеграцию', tag: 'telegram', href: 'https://t.me/mindhearted' },
-      { label: 'Вот о\u00a0чём подумала — [пуб]личный дневник', tag: 'telegram', href: 'https://t.me/mark_inalife' },
+      { label: 'Mind-hearted\u00a0— про\u00a0нейроинтеграцию', tag: 'telegram', href: 'https://t.me/mindhearted' },
+      { label: 'Вот о\u00a0чём подумала\u00a0— [пуб]личный дневник', tag: 'telegram', href: 'https://t.me/mark_inalife' },
     ],
   },
   en: {
