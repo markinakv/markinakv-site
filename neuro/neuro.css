@@ -240,3 +240,14 @@
   .fold[open] summary .arr { background: var(--green); border-color: var(--green); color: #fff; transform: rotate(90deg); }
   .fold-body { display: flex; flex-direction: column; gap: 20px; margin-top: 22px; }
   .fold .test { background: var(--bg); }
+
+  .how-tab .arr { display: none; }
+  .more-t { font-size: 14px; font-weight: 600; color: var(--green); margin-top: 6px; }
+  .more-t::before { content: 'Подробнее ↓'; }
+  .how-tab[aria-expanded="true"] .more-t::before, .fold[open] .more-t::before { content: 'Свернуть ↑'; }
+  .fold summary { align-items: flex-end; }
+  #how + #tests { margin-top: -40px; }
+  .certs-static { display: flex; flex-direction: column; gap: 10px; }
+  .certs-static a { display: block; font-size: 15px; border-top: 1px solid var(--line); padding: 10px 0; }
+  details.certs summary::after { content: ' ↓'; }
+  details.certs[open] summary::after { content: ' ↑'; }
