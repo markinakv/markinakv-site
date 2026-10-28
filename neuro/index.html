@@ -71,7 +71,7 @@
     .n-p { font-size: 16px; line-height: 1.6; color: #3a362f; margin: 0; }
     .n-sec { padding: 36px 0; border-top: 1px solid #e0dacd; display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 12px 48px; align-items: start; }
     .n-final { display: block; }
-    .n-head .n-h2 { font-size: 22px; margin: 0; }
+    .n-head .n-h2 { font-size: 26px; margin: 0; }
     .n-steps { display: grid; grid-template-columns: 1fr 1fr; column-gap: 28px; border-top: 1px solid #e0dacd; }
     .n-card { background: #fbf9f4; border: 1px solid #e0dacd; border-radius: 12px; padding: 18px 20px; }
     .n-card-title { font-weight: 600; margin-bottom: 6px; }
@@ -123,14 +123,15 @@
     </section>
 
     <section class="n-sec">
-      <div class="n-head"><p class="n-label">{{ forWhomLabel }}</p><h2 class="n-h2">{{ forWhomTitle }}</h2></div>
+      <div class="n-head"><h2 class="n-h2">{{ forWhomTitle }}</h2></div>
       <div class="n-body">
       <div class="n-grid2" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
         <sc-for list="{{ forWhom }}" as="f" hint-placeholder-count="4">
           <div class="n-card" style="line-height: 1.5;">{{ f.text }}</div>
         </sc-for>
       </div>
-      <p class="n-label" style="margin-top: 28px;">{{ fitLabel }}</p>
+      <h3 class="n-h2" style="margin: 36px 0 14px;">{{ fitTitle }}</h3>
+      <p class="n-label">{{ fitLabel }}</p>
       <div style="border-top: 1px solid #e0dacd;">
         <sc-for list="{{ fit }}" as="y" hint-placeholder-count="2">
           <div style="display: grid; grid-template-columns: 24px 1fr; gap: 8px; padding: 10px 0; border-bottom: 1px solid #e0dacd; line-height: 1.5; color: #4f4a42;"><span style="font-family: 'IBM Plex Mono', ui-monospace, monospace; color: #3f6b55;">✓</span><span>{{ y.text }}</span></div>
@@ -146,7 +147,7 @@
     </section>
 
     <section class="n-sec">
-      <div class="n-head"><p class="n-label">{{ methodLabel }}</p><h2 class="n-h2">{{ methodTitle }}</h2></div>
+      <div class="n-head"><h2 class="n-h2">{{ methodTitle }}</h2></div>
       <div class="n-body">
       <p class="n-p" style="margin-bottom: 20px;">{{ methodIntro }}</p>
       <div class="n-grid2">
@@ -161,7 +162,7 @@
     </section>
 
     <section class="n-sec">
-      <div class="n-head"><p class="n-label">{{ stepsLabel }}</p><h2 class="n-h2">{{ stepsTitle }}</h2></div>
+      <div class="n-head"><h2 class="n-h2">{{ stepsLabel }}</h2></div>
       <div class="n-body">
       <div class="n-steps">
         <sc-for list="{{ steps }}" as="s" hint-placeholder-count="7">
@@ -179,7 +180,7 @@
     </section>
 
     <section id="tests" class="n-sec">
-      <div class="n-head"><p class="n-label">{{ testsLabel }}</p><h2 class="n-h2">{{ testsTitle }}</h2></div>
+      <div class="n-head"><h2 class="n-h2">{{ testsTitle }}</h2></div>
       <div class="n-body">
       <p class="n-p" style="margin-bottom: 20px;">{{ testsIntro }}</p>
       <div class="n-grid2" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-bottom: 20px;">
@@ -202,7 +203,7 @@
     </section>
 
     <section class="n-sec">
-      <div class="n-head"><p class="n-label">{{ aboutLabel }}</p></div>
+      <div class="n-head"><h2 class="n-h2">{{ aboutLabel }}</h2></div>
       <div class="n-body"><div class="n-about">
         <div class="n-photo" style="width: 100%; aspect-ratio: 3 / 4; overflow: hidden; border-radius: 12px;"><img src="/uploads/DSC_8644_resized.jpg" alt="{{ name }}" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; display: block;"></div>
         <div>
@@ -218,7 +219,7 @@
     </section>
 
     <section class="n-sec">
-      <div class="n-head"><p class="n-label">{{ reviewsLabel }}</p><h2 class="n-h2">{{ reviewsTitle }}</h2></div>
+      <div class="n-head"><h2 class="n-h2">{{ reviewsTitle }}</h2></div>
       <div class="n-body">
       <div class="n-grid2" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
         <sc-for list="{{ reviews }}" as="v" hint-placeholder-count="4">
@@ -230,7 +231,7 @@
     </section>
 
     <section class="n-sec">
-      <div class="n-head"><p class="n-label">{{ faqLabel }}</p></div>
+      <div class="n-head"><h2 class="n-h2">{{ faqLabel }}</h2></div>
       <div class="n-body"><div style="border-top: 1px solid #e0dacd;">
         <sc-for list="{{ faq }}" as="q" hint-placeholder-count="5">
           <details class="n-faq">
@@ -289,6 +290,7 @@ const COPY = {
       { text: 'Идеи и желание есть, но дела всё время откладываются на потом' },
       { text: 'Ставлю цели и планирую, но через месяц уже не помню, чего хотел(а)' },
     ],
+    fitTitle: 'Кому подходит',
     fitLabel: 'Подойдёт, если',
     fit: [
       { text: 'Хочется системного подхода к тому, что делаешь по жизни' },
@@ -386,6 +388,7 @@ const COPY = {
       { text: 'Ideas and drive are there, but things keep getting postponed' },
       { text: 'Setting goals and planning, then forgetting what they were a month later' },
     ],
+    fitTitle: 'Who it is for',
     fitLabel: 'A good fit if',
     fit: [
       { text: 'You want a systematic approach to what you do in life' },
