@@ -217,3 +217,7 @@
   .author-mini img { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; object-position: 50% 20%; display: block; }
   .author-mini p { font-size: 16px; line-height: 1.55; color: var(--ink2); margin: 6px 0 8px; max-width: 720px; }
   @media (max-width: 640px) { .crumb, .crumb-sep { display: none; } .hero { grid-template-columns: 1fr; } }
+
+  .author img { object-position: 50% 30%; }
+  .author-mini img { object-position: 50% 30%; }
+  .hero-photo img { object-position: 50% 30%; }
