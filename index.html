@@ -81,16 +81,18 @@
     .d-card:hover { border-color: #3f6b55; background: #fff; }
     .d-card:hover .d-name { color: #3f6b55; }
     .d-side { max-width: 320px; }
+    .d-grid { grid-template-columns: 280px 1fr; gap: 40px 40px; }
     @media (max-width: 720px) {
+      .d-grid { grid-template-columns: 1fr; }
       .d-side { max-width: none; }
       .d-photo { max-width: 240px; }
     }
   </style>
 </helmet>
 <div style="background: #f6f3ec; color: #26241f; font-family: 'Golos Text', system-ui, sans-serif; min-height: 100vh; display: flex; justify-content: center;">
-  <div style="width: 100%; max-width: 960px; padding: 28px 24px 56px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 56px; align-items: start;">
+  <div class="d-grid" style="width: 100%; max-width: 920px; padding: 28px 24px 56px; display: grid; align-items: start;">
 
-    <header style="grid-column: 1 / -1; margin-bottom: -24px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 24px; padding-bottom: 14px; border-bottom: 1px solid #e0dacd; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: .04em;">
+    <header style="grid-column: 1 / -1; margin-bottom: -12px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 24px; padding-bottom: 14px; border-bottom: 1px solid #e0dacd; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: .04em;">
       <a href="#" style="text-decoration: none; font-weight: 500; color: #26241f; padding: 10px 0;">markinakv</a>
       <nav style="display: flex; flex-wrap: wrap; align-items: center; gap: 0 20px;">
         <a class="d-nav" href="#projects">{{ navProjects }}</a>
