@@ -48,6 +48,7 @@ posthog.init('phc_pzVXHwrtXHBxQvSZMLTv8RKynT4oJGRTofb6DLixLo7C',{api_host:'https
       </div>
       <div class="cta-row">
         <a class="btn" href="https://forms.gle/GpxmvWf3i1kqzAqo9" target="_blank" rel="noopener" data-cta="hero">Оставить предзаявку</a>
+        <a class="more" href="#tests">или начать с тестов →</a>
         <span class="note">Анкета — 10 минут. Свяжусь с тобой при запуске следующей группы.</span>
       </div>
     </div>
@@ -177,6 +178,44 @@ posthog.init('phc_pzVXHwrtXHBxQvSZMLTv8RKynT4oJGRTofb6DLixLo7C',{api_host:'https
   </section>
 
   <!-- 5. КТО ВЕДЁТ -->
+  <section id="tests">
+    <details class="fold" id="tests-fold">
+      <summary>
+        <span><span class="eyebrow">можно начать с тестов</span><h2>Тесты Института нейроинтеграции с разбором</h2></span>
+        <span class="arr">▸</span>
+      </summary>
+      <div class="fold-body">
+    <p class="lead">Если хочется сначала посмотреть на себя со стороны: проходишь тесты, а я делаю разбор результатов. Так видно, где ты сейчас по состоянию, стрессу и навыкам, ещё до начала работы.</p>
+    <div class="tests">
+      <div class="test">
+        <h3>Тест по ключевым показателям</h3>
+        <div class="row"><b>НейроБаланс</b> — сколько времени ты в ресурсе, дистрессе или выгорании</div>
+        <div class="row"><b>НейроОрбиты</b> — привычные сценарии поведения</div>
+        <div class="row"><b>Индекс продуктивности</b> — структура, фокус, рефлексия</div>
+        <div class="row"><b>PHQ-8 и GAD-7</b> — скрининг симптомов депрессии и тревожности</div>
+        <a class="btn ghost" href="https://neurointegration.org/test-neurointegration" target="_blank" rel="noopener" data-cta="test1">Пройти тест</a>
+      </div>
+      <div class="test">
+        <h3>Адаптированный тест Холмса–Рея</h3>
+        <div class="row"><b>Стресс-факторы</b> — нагрузка от событий за последний год</div>
+        <a class="btn ghost" href="https://neurointegration.org/test-adapt-stress" target="_blank" rel="noopener" data-cta="test2">Пройти тест</a>
+      </div>
+    </div>
+    <p class="howto">Оба теста занимают около 25 минут. После каждого теста сделай скриншот финальной страницы или скопируй весь текст и пришли мне в Telegram. Промежуточные результаты не нужны, только итог. Разбор пришлю в течение суток.</p>
+    <a class="btn" href="https://t.me/markinakv" target="_blank" rel="noopener" data-cta="send-tests" style="align-self:flex-start;">Прислать результаты на разбор</a>
+  
+      </div>
+    </details>
+  </section>
+  <script>
+    (function () {
+      var d = document.getElementById('tests-fold');
+      function openIf() { if (location.hash === '#tests') d.open = true; }
+      openIf(); window.addEventListener('hashchange', openIf);
+      document.querySelectorAll('a[href="#tests"]').forEach(function (a) { a.addEventListener('click', function () { d.open = true; }); });
+    })();
+  </script>
+
   <section id="author">
     <span class="eyebrow">кто ведёт</span>
     <div class="author-g">
