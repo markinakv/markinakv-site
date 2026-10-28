@@ -118,7 +118,7 @@
     <section class="n-sec">
       <p class="n-label">{{ forWhomLabel }}</p>
       <h2 class="n-h2">{{ forWhomTitle }}</h2>
-      <div class="n-grid2">
+      <div class="n-grid2" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
         <sc-for list="{{ forWhom }}" as="f" hint-placeholder-count="4">
           <div class="n-card" style="line-height: 1.5;">{{ f.text }}</div>
         </sc-for>

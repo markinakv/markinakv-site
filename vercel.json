@@ -6,6 +6,8 @@
   ],
   "rewrites": [
     { "source": "/ru/", "destination": "/index.html" },
+    { "source": "/ru/:dir/", "destination": "/:dir/index.html" },
+    { "source": "/ru/neuro", "destination": "/neuro/index.html" },
     { "source": "/ru/:match*", "destination": "/:match*" }
   ]
 }
