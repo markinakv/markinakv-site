@@ -202,6 +202,18 @@
     .pains .pain:last-child:nth-child(odd) { grid-column: auto; }
   }
 
-  .hdr .wrap { max-width: 1140px; }
   .nav { gap: 18px; }
   .nav a.l, .btn.sm, .logo { white-space: nowrap; }
+
+  .wrap { max-width: 1140px; }
+  main { gap: 72px; }
+  .hero { grid-template-columns: 1fr 300px; }
+  .lead { max-width: 760px; }
+  .hdr-left { display: flex; align-items: center; min-width: 0; }
+  .crumb { font-family: var(--mono); font-size: 12px; color: var(--mute2); white-space: nowrap; }
+  .crumb:hover { color: var(--green); text-decoration: none; }
+  .crumb-sep { color: var(--line); margin: 0 10px; }
+  .author-mini { display: grid; grid-template-columns: 96px 1fr; gap: 22px; align-items: center; }
+  .author-mini img { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; object-position: 50% 20%; display: block; }
+  .author-mini p { font-size: 16px; line-height: 1.55; color: var(--ink2); margin: 6px 0 8px; max-width: 720px; }
+  @media (max-width: 640px) { .crumb, .crumb-sep { display: none; } .hero { grid-template-columns: 1fr; } }
