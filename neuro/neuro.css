@@ -260,3 +260,5 @@
 
   .faq summary { font-weight: 400; }
   .faq > div { margin-top: 4px; }
+
+  .terms p + p { margin-top: -16px; }
