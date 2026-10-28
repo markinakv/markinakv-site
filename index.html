@@ -74,6 +74,9 @@
     .d-row-sm { padding: 10px 0; }
     .d-tag { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; color: #6b655a; white-space: nowrap; }
     .d-desc { color: #4f4a42; }
+    .d-nav { text-decoration: none; color: #4f4a42; padding: 10px 0; }
+    .d-nav:hover { color: #3f6b55; }
+    html { scroll-behavior: smooth; }
     .d-card { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px 18px; margin-bottom: 10px; background: #fbf9f4; border: 1px solid #e0dacd; border-radius: 12px; color: #26241f; text-decoration: none; line-height: 1.45; transition: border-color .15s, background .15s; }
     .d-card:hover { border-color: #3f6b55; background: #fff; }
     .d-card:hover .d-name { color: #3f6b55; }
@@ -85,7 +88,17 @@
   </style>
 </helmet>
 <div style="background: #f6f3ec; color: #26241f; font-family: 'Golos Text', system-ui, sans-serif; min-height: 100vh; display: flex; justify-content: center;">
-  <div style="width: 100%; max-width: 960px; padding: 72px 24px 56px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 56px; align-items: start;">
+  <div style="width: 100%; max-width: 960px; padding: 28px 24px 56px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 56px; align-items: start;">
+
+    <header style="grid-column: 1 / -1; margin-bottom: -24px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 24px; padding-bottom: 14px; border-bottom: 1px solid #e0dacd; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: .04em;">
+      <a href="#" style="text-decoration: none; font-weight: 500; color: #26241f; padding: 10px 0;">markinakv</a>
+      <nav style="display: flex; flex-wrap: wrap; align-items: center; gap: 0 20px;">
+        <a class="d-nav" href="#projects">{{ navProjects }}</a>
+        <a class="d-nav" href="#social">{{ navSocial }}</a>
+        <a class="d-nav" href="#contact">{{ navContact }}</a>
+        <a href="{{ langSwitchHref }}" style="display: inline-block; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12px; border: 1px solid #c9c1b0; border-radius: 999px; padding: 6px 12px; text-decoration: none;">{{ langSwitchLabel }}</a>
+      </nav>
+    </header>
 
     <div class="d-side" style="display: flex; flex-direction: column; gap: 20px;">
       <div class="d-photo" style="width: 100%; aspect-ratio: 3 / 4; overflow: hidden; border-radius: 12px;"><img src="uploads/portrait.jpg" alt="{{ heroName }}" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 70%; transform: scale(1.4); transform-origin: 41% 58%; display: block;"></div>
@@ -97,10 +110,7 @@
         <span style="color: #6b655a;">{{ nomadLabel }}</span>
         <sc-if value="{{ whereVisible }}"><br>{{ whereLine }}</sc-if>
       </div>
-      <div>
-        <a href="{{ langSwitchHref }}" style="display: inline-block; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12px; border: 1px solid #c9c1b0; border-radius: 999px; padding: 6px 12px; text-decoration: none;">{{ langSwitchLabel }}</a>
-      </div>
-      <div style="margin-top: 8px;">
+      <div id="contact" style="margin-top: 8px;">
         <p class="d-label">{{ contactHeading }}</p>
         <sc-for list="{{ contacts }}" as="c" hint-placeholder-count="2">
           <a class="d-row d-row-sm" href="{{ c.href }}"><span class="d-name">{{ c.label }}</span><span class="d-tag">{{ c.tag }}</span></a>
@@ -115,14 +125,14 @@
         <p style="margin: 0;">{{ about2 }}</p>
       </div>
 
-      <div>
+      <div id="projects">
         <p class="d-label">{{ projectsHeading }}</p>
         <sc-for list="{{ projects }}" as="p" hint-placeholder-count="4">
           <a class="d-card" href="{{ p.href }}"><span><span class="d-name" style="font-weight: 600;">{{ p.name }}</span><span class="d-desc"> — {{ p.desc }}</span></span><span class="d-tag">{{ p.tag }}</span></a>
         </sc-for>
       </div>
 
-      <div>
+      <div id="social">
         <p class="d-label">{{ writingHeading }}</p>
         <sc-for list="{{ socials }}" as="s" hint-placeholder-count="4">
           <a class="d-row" href="{{ s.href }}" target="_blank" rel="noopener"><span class="d-name">{{ s.label }}</span><span class="d-tag">{{ s.tag }}</span></a>
@@ -149,6 +159,9 @@ const COPY = {
     about1: '10+ лет запускаю проекты с\u00a0нуля: образовательные программы, фестивали, события, digital-продукты, благотворительные проекты. Последние годы выстраивала операционку в\u00a0стартапах.',
     about2: 'Сейчас веду частную практику по\u00a0нейроинтеграции, помогаю людям настроить AI под свою жизнь и\u00a0продюсирую запуски для команд.',
     contactHeading: 'Связаться',
+    navProjects: 'Проекты',
+    navSocial: 'Соц. сети',
+    navContact: 'Контакты',
     contacts: [
       { label: '@markinakv', tag: 'telegram', href: 'https://t.me/markinakv' },
       { label: 'km@markinakv.com', tag: 'почта', href: 'mailto:km@markinakv.com' },
@@ -179,6 +192,9 @@ const COPY = {
     about1: '10+ years launching projects from scratch: educational programs, festivals, events, digital products, charity projects. Most recently I built operations in startups.',
     about2: 'Now I run a private neurointegration practice, help people set up AI for their lives, and produce launches for teams.',
     contactHeading: 'Contact',
+    navProjects: 'Projects',
+    navSocial: 'Social',
+    navContact: 'Contact',
     contacts: [
       { label: '@markinakv', tag: 'telegram', href: 'https://t.me/markinakv' },
       { label: 'km@markinakv.com', tag: 'email', href: 'mailto:km@markinakv.com' },
