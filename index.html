@@ -74,6 +74,9 @@
     .d-row-sm { padding: 10px 0; }
     .d-tag { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; color: #6b655a; white-space: nowrap; }
     .d-desc { color: #4f4a42; }
+    .d-card { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px 18px; margin-bottom: 10px; background: #fbf9f4; border: 1px solid #e0dacd; border-radius: 12px; color: #26241f; text-decoration: none; line-height: 1.45; transition: border-color .15s, background .15s; }
+    .d-card:hover { border-color: #3f6b55; background: #fff; }
+    .d-card:hover .d-name { color: #3f6b55; }
     .d-side { max-width: 320px; }
     @media (max-width: 720px) {
       .d-side { max-width: none; }
@@ -85,7 +88,7 @@
   <div style="width: 100%; max-width: 960px; padding: 72px 24px 56px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 56px; align-items: start;">
 
     <div class="d-side" style="display: flex; flex-direction: column; gap: 20px;">
-      <img class="d-photo" src="uploads/portrait-bw.svg" alt="{{ heroName }}" style="width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: 50% 50%; border-radius: 12px; display: block;">
+      <img class="d-photo" src="uploads/DSC_8644_resized.jpg" alt="{{ heroName }}" style="width: 100%; aspect-ratio: 1; object-fit: cover; object-position: 50% 30%; border-radius: 12px; display: block;">
       <div>
         <h1 style="margin: 0 0 6px; font-size: 26px; font-weight: 600; letter-spacing: -.01em;">{{ heroName }}</h1>
         <div style="font-size: 14px; line-height: 1.45; color: #4f4a42;">{{ roles }}</div>
@@ -102,7 +105,7 @@
         <sc-for list="{{ contacts }}" as="c" hint-placeholder-count="2">
           <a class="d-row d-row-sm" href="{{ c.href }}"><span class="d-name">{{ c.label }}</span><span class="d-tag">{{ c.tag }}</span></a>
         </sc-for>
-        <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2grvyquVZEw3fnTrbvL8l0IOTHUi1aYr94qkA4GNDqrmhQltSj5TO8OYlBdxWeIaxWnYi17clt" target="_blank" rel="noopener" style="display: flex; align-items: center; justify-content: center; min-height: 44px; margin-top: 14px; padding: 0 20px; border-radius: 999px; background: #26241f; color: #f6f3ec; text-decoration: none; font-size: 14px; font-weight: 600;">{{ callCtaLabel }}</a>
+        <a href="https://calendar.google.com/calendar/u/0/appointments/AcZssZ1eXN0eT5X2Lkn4IUAnbwqpBxPEXvh4lYYw6tk=" target="_blank" rel="noopener" style="display: flex; align-items: center; justify-content: center; min-height: 44px; margin-top: 14px; padding: 0 20px; border-radius: 999px; background: #26241f; color: #f6f3ec; text-decoration: none; font-size: 14px; font-weight: 600;">{{ callCtaLabel }}</a>
       </div>
     </div>
 
@@ -115,7 +118,7 @@
       <div>
         <p class="d-label">{{ projectsHeading }}</p>
         <sc-for list="{{ projects }}" as="p" hint-placeholder-count="4">
-          <a class="d-row" href="{{ p.href }}"><span><span class="d-name" style="font-weight: 600;">{{ p.name }}</span><span class="d-desc"> — {{ p.desc }}</span></span><span class="d-tag">{{ p.tag }}</span></a>
+          <a class="d-card" href="{{ p.href }}"><span><span class="d-name" style="font-weight: 600;">{{ p.name }}</span><span class="d-desc"> — {{ p.desc }}</span></span><span class="d-tag">{{ p.tag }}</span></a>
         </sc-for>
       </div>
 
@@ -140,7 +143,7 @@ const COPY = {
     langSwitchLabel: 'EN',
     backToTopLabel: 'в начало',
     heroName: 'Катерина Маркина',
-    roles: 'Операционный менеджер · продюсер · тренер по\u00a0нейроинтеграции · коуч',
+    roles: 'Операционный менеджер · продюсер · коуч · тренер по\u00a0нейроинтеграции',
     nomadLabel: 'Диджитал-номад',
     nowLabel: 'Сейчас',
     about1: '10+ лет запускаю проекты с\u00a0нуля: образовательные программы, фестивали, события, digital-продукты, благотворительные проекты. Последние годы выстраивала операционку в\u00a0стартапах.',
@@ -170,7 +173,7 @@ const COPY = {
     langSwitchLabel: 'RU',
     backToTopLabel: 'to top',
     heroName: 'Katerina Markina',
-    roles: 'Operations manager · producer · neurointegration trainer · coach',
+    roles: 'Operations manager · producer · coach · neurointegration trainer',
     nomadLabel: 'Digital nomad',
     nowLabel: 'Now',
     about1: '10+ years launching projects from scratch: educational programs, festivals, events, digital products, charity projects. Most recently I built operations in startups.',
