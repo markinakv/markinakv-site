@@ -251,3 +251,7 @@
   .certs-static a { display: block; font-size: 15px; border-top: 1px solid var(--line); padding: 10px 0; }
   details.certs summary::after { content: ' ↓'; }
   details.certs[open] summary::after { content: ' ↑'; }
+
+  .how-tabs { align-items: stretch; }
+  .how-tab { height: 100%; }
+  .how-tab .more-t { margin-top: auto; padding-top: 6px; }
