@@ -21,8 +21,8 @@
       "permanent": false
     },
     {
-      "source": "/ru/neuro/:path*",
-      "destination": "https://mind-hearted.com/:path*",
+      "source": "/ru/neuro/(.*)",
+      "destination": "https://mind-hearted.com/$1",
       "permanent": false
     },
     {
@@ -31,8 +31,8 @@
       "permanent": false
     },
     {
-      "source": "/neuro/:path*",
-      "destination": "https://mind-hearted.com/en/:path*",
+      "source": "/neuro/(.*)",
+      "destination": "https://mind-hearted.com/en/$1",
       "permanent": false
     },
     {
