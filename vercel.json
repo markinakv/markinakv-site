@@ -6,16 +6,6 @@
       "statusCode": 308
     },
     {
-      "source": "/neurointegration.html",
-      "destination": "/neuro/",
-      "statusCode": 308
-    },
-    {
-      "source": "/ru/neurointegration.html",
-      "destination": "/ru/neuro/",
-      "statusCode": 308
-    },
-    {
       "source": "/growth-operations.html",
       "destination": "/ops/",
       "statusCode": 308
@@ -24,6 +14,36 @@
       "source": "/ru/growth-operations.html",
       "destination": "/ru/ops/",
       "statusCode": 308
+    },
+    {
+      "source": "/ru/neuro",
+      "destination": "https://mind-hearted.com/",
+      "permanent": false
+    },
+    {
+      "source": "/ru/neuro/:path*",
+      "destination": "https://mind-hearted.com/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/neuro",
+      "destination": "https://mind-hearted.com/en/",
+      "permanent": false
+    },
+    {
+      "source": "/neuro/:path*",
+      "destination": "https://mind-hearted.com/en/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/ru/neurointegration.html",
+      "destination": "https://mind-hearted.com/",
+      "permanent": true
+    },
+    {
+      "source": "/neurointegration.html",
+      "destination": "https://mind-hearted.com/en/",
+      "permanent": true
     }
   ],
   "rewrites": [
@@ -38,10 +58,6 @@
     {
       "source": "/ru/:dir/",
       "destination": "/:dir/index.html"
-    },
-    {
-      "source": "/ru/neuro",
-      "destination": "/ru/neuro/index.html"
     },
     {
       "source": "/ru/ops",
